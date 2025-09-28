@@ -1,0 +1,430 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #7DE2FC, #B9B6E5);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container utama */
+.auth-container {
+    width: 100%;
+    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Back to Home Button */
+.back-home {
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.btn-back-home {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    backdrop-filter: blur(20px);
+    transition: all 0.3s ease;
+}
+
+.btn-back-home:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Tab Login / SignUp - Outside Card */
+.auth-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    margin-bottom: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 25px;
+    padding: 4px;
+    backdrop-filter: blur(10px);
+}
+
+.tab-btn {
+    background: transparent;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.tab-btn.active {
+    background: #FF5C00;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 92, 0, 0.3);
+}
+
+.tab-btn:not(.active):hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Card utama */
+.auth-card {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: white;
+    border-radius: 25px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+    min-height: 500px;
+}
+
+/* Bagian kiri - Welcome */
+.welcome-section {
+    padding: 50px 40px;
+    background: linear-gradient(135deg, #C084FC 0%, #60A5FA 100%);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+.logo-badge {
+    width: 60px;
+    height: 60px;
+    background: #FF5C00;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 30px;
+    box-shadow: 0 8px 20px rgba(255, 92, 0, 0.3);
+}
+
+.welcome-title {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.2;
+}
+
+.welcome-text {
+    font-size: 14px;
+    line-height: 1.7;
+    opacity: 0.9;
+    margin-top: 10px;
+}
+
+/* Bagian kanan - Form */
+.form-section {
+    background: #6D28D9;
+    padding: 50px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+/* Form styling */
+.auth-form {
+    display: none;
+    flex-direction: column;
+}
+
+.auth-form.active {
+    display: flex;
+}
+
+.form-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-title {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+/* Input Groups */
+.input-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group label {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 8px;
+    opacity: 0.9;
+    order: 1;
+}
+
+.input-group input,
+.input-group .password-input {
+    order: 2;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 15px 20px;
+    border-radius: 25px;
+    border: none;
+    background: #7C3AED;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.input-group input::placeholder {
+    color: rgba(255, 255, 255, 0.7);
+    font-weight: 400;
+}
+
+.input-group input:focus {
+    background: #8B5CF6;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Password Input with Toggle */
+.password-input {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 5px;
+    transition: color 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: white;
+}
+
+/* Form Options */
+.form-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* Custom Checkbox */
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    color: white;
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox-container input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    border-radius: 3px;
+    margin-right: 10px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+    border-color: white;
+}
+
+.checkbox-container input:checked ~ .checkmark {
+    background-color: #FF5C00;
+    border-color: #FF5C00;
+}
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.checkbox-container input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.3s ease;
+}
+
+.forgot-password:hover {
+    color: white;
+    text-decoration: underline;
+}
+
+/* Error and Success Messages */
+.error-message, .success-message {
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    border-radius: 15px;
+    font-size: 13px;
+    text-align: center;
+    display: none;
+}
+
+.error-message {
+    background: rgba(239, 68, 68, 0.2);
+    color: #FCA5A5;
+    border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.success-message {
+    background: rgba(34, 197, 94, 0.2);
+    color: #86EFAC;
+    border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+/* Tombol Submit */
+.btn-submit {
+    margin-top: 15px;
+    padding: 15px 30px;
+    border: none;
+    background: #FF5C00;
+    color: white;
+    border-radius: 25px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(255, 92, 0, 0.3);
+}
+
+.btn-submit:hover {
+    background: #E34C00;
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(255, 92, 0, 0.4);
+}
+
+.btn-submit:active {
+    transform: translateY(-1px);
+}
+
+/* Ensure single auth-card styling */
+.auth-card {
+    position: relative;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .auth-container {
+        padding: 10px;
+    }
+    
+    .auth-card {
+        grid-template-columns: 1fr;
+        border-radius: 25px;
+        max-width: 400px;
+    }
+
+    .welcome-section {
+        padding: 30px 25px;
+        text-align: center;
+        border-radius: 25px 25px 0 0;
+    }
+
+    .welcome-title {
+        font-size: 24px;
+    }
+
+    .form-section {
+        padding: 30px 25px;
+        border-radius: 0 0 25px 25px;
+    }
+    
+    .form-title {
+        font-size: 24px;
+    }
+    
+    .form-options {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-section, .form-section {
+        padding: 25px 20px;
+    }
+    
+    .welcome-title {
+        font-size: 22px;
+    }
+    
+    .form-title {
+        font-size: 22px;
+    }
+    
+    .input-group input {
+        padding: 12px 18px;
+    }
+    
+    .btn-submit {
+        padding: 12px 25px;
+        font-size: 15px;
+    }
+}
