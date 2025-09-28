@@ -7,7 +7,7 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #7DE2FC, #B9B6E5);
+    background: linear-gradient(135deg,#B29EEB, #74F9D0);
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -100,7 +100,7 @@ body {
 /* Bagian kiri - Welcome */
 .welcome-section {
     padding: 50px 40px;
-    background: linear-gradient(135deg, #C084FC 0%, #60A5FA 100%);
+    background: linear-gradient(135deg, #74F9D0 0%, #B29EEB 100%);
     color: white;
     display: flex;
     flex-direction: column;
