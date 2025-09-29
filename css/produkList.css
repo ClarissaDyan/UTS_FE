@@ -1,0 +1,422 @@
+/* ===== PENGATURAN DASAR & VARIABEL WARNA ===== */
+:root {
+    --primary-orange: #F97B22;
+    --light-blue: #D6E4F0;
+    --dark-blue: #1A2836;
+    --text-color: #333;
+    --bg-color: #F0F4F8;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* === BAGIAN PENTING YANG DITAMBAHKAN === */
+html, body {
+    width: 100%;
+    max-width: 100%; 
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    background: linear-gradient(to top, #75F9D1, #B49DEB);
+}
+
+
+/* ===== HEADER ===== */
+.header-v2 {
+    width: 100%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    /* Tambahkan ini untuk menghapus sudut melengkung jika masih ada */
+    border-radius: 0; 
+}
+
+/* ===== BARIS ATAS (GRADIENT) ===== */
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 40px;
+    background: linear-gradient(to right, #75F9D1, #B49DEB);
+    position: relative; 
+}
+
+.header-top .user-greeting {
+    font-size: 1.1em;
+    font-weight: 600;
+    color: #0B3C3D; /* Warna teks gelap agar terbaca */
+}
+
+.header-top .logo img {
+    height: 82px; /* Anda bisa ubah angka ini sesuai selera */
+    width: auto;  /* Biarkan auto agar proporsi gambar tidak rusak */
+}
+
+/* Logo di tengah */
+.header-top .logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.header-top .logo h1 {
+    font-size: 3.5em; /* Ukuran disesuaikan dengan gambar */
+    font-weight: 800;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+}
+
+/* Tombol di kanan */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-actions .btn-payment {
+    background-color: #F97B22; /* Warna oranye */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+.header-actions .btn-payment:hover {
+    transform: translateY(-2px);
+}
+
+.header-actions .btn-icon {
+    background-color: #F97B22;
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: transform 0.2s ease;
+}
+.header-actions .btn-icon:hover {
+    transform: translateY(-2px);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ===== BARIS NAVIGASI (UNGU) ===== */
+.main-nav {
+    background-color: #6025E1; /* Warna ungu yang Anda minta */
+    padding: 10px 0;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 60px; /* Jarak antar menu */
+}
+
+.main-nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 500;
+    padding: 5px 0;
+    border-bottom: 2px solid transparent; /* Garis bawah transparan */
+    transition: border-color 0.3s ease;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    /* Garis bawah putih untuk menu aktif/hover */
+    border-bottom: 2px solid white; 
+}
+
+/* ===== Tombol (Button) ===== */
+.btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: var(--primary-orange);
+    color: var(--white);
+}
+
+.btn-secondary {
+    background-color: var(--light-blue);
+    color: var(--dark-blue);
+}
+
+/* GANTI KODE CSS LAMA ANDA DENGAN INI */
+
+/* ===== MAIN CONTENT ===== */
+main {
+    padding: 30px 0;
+}
+
+/* Kotak header utama yang sekarang berisi semuanya */
+.main-header {
+    background-color: var(--white);
+    padding: 30px 35px; /* Padding dibuat lebih besar */
+    border-radius: 20px; /* Sudut dibuat lebih melengkung */
+    margin-bottom: 30px;
+    /* Bayangan (shadow) dibuat lebih terlihat seperti di contoh */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Styling untuk breadcrumbs di dalam kotak */
+.breadcrumbs p {
+    color: #333; /* Warna dibuat lebih gelap */
+    font-weight: 600; /* Dibuat tebal */
+    margin-bottom: 5px; /* Margin bawah dikurangi */
+    font-size: 1.1em;
+}
+
+/* Styling untuk judul utama "Kursus" */
+.main-header h2 {
+    font-size: 3em; /* Ukuran font diperbesar secara signifikan */
+    font-weight: 800; /* Dibuat ekstra tebal */
+    margin-bottom: 8px;
+    color: #1A2836; /* Warna disamakan dengan dark blue */
+}
+
+/* Styling untuk subjudul */
+.main-header p {
+    color: #555; /* Warna teks subjudul */
+    font-size: 1.1em;
+}
+
+/* CSS ini tidak berubah, tapi pastikan ada */
+.content-wrapper {
+    display: flex;
+    gap: 30px;
+}
+
+
+/* ===== SIDEBAR FILTER ===== */
+.filters {
+    flex: 1;
+    max-width: 280px;
+    background-color: var(--white);
+    padding: 25px;
+    border-radius: 12px;
+    height: fit-content;
+    flex-shrink: 0;
+}
+
+.filter-group {
+    margin-bottom: 25px;
+}
+
+.filter-group h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+.filter-option {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+}
+
+.filter-option input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    cursor: pointer;
+    accent-color: var(--primary-orange);
+}
+
+.filter-option label {
+    font-size: 0.95em;
+    cursor: pointer;
+    color: #555;
+}
+
+.list-header {
+    background-color: var(--white);
+    padding: 15px 25px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    width: fit-content; 
+    margin-left: auto;
+}
+
+
+.course-list {
+    flex: 3;
+}
+
+.course-card {
+    display: flex;
+    flex-direction: column; /* Mengatur susunan item ke bawah (top & bottom) */
+    background-color: #6025E1;
+    color: var(--white);
+    border-radius: 20px; /* Sudut lebih melengkung */
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
+    overflow: hidden; /* Memastikan semua konten tetap di dalam border-radius */
+}
+
+
+.card-top {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.course-card img {
+    width: 400px; /* Lebar gambar disesuaikan */
+    height: 100%; /* Tinggi menyesuaikan proporsi */
+    border-radius: 8px;
+    object-fit: cover;
+    align-self: flex-start; /* Gambar menempel di atas */
+}
+
+.course-card .course-info {
+    flex-grow: 1;
+}
+
+.course-card h4 {
+    font-size: 1.5em; /* Judul sedikit lebih besar */
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.course-card .description {
+    font-size: 0.95em;
+    opacity: 0.9;
+    margin-bottom: 12px;
+    line-height: 1.5;
+}
+
+.course-card .instructor {
+    font-size: 0.9em;
+    font-weight: 500;
+    opacity: 0.8;
+    margin-bottom: 15px;
+}
+
+.course-card .meta-info {
+    display: flex;
+    gap: 8px;
+    font-size: 0.85em;
+    opacity: 0.7;
+}
+
+
+/* BAGIAN BAWAH */
+.card-bottom {
+    display: flex;
+    justify-content: space-between; /* Mendorong harga ke kiri & tombol ke kanan */
+    align-items: center;
+    padding: 15px 20px;
+    background-color: rgba(0, 0, 0, 0.1); /* Latar belakang sedikit lebih gelap */
+}
+
+.card-bottom .price {
+    font-size: 2em; /* Harga dibuat jauh lebih besar */
+    font-weight: 700;
+}
+
+.card-bottom .buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Sesuaikan styling tombol jika perlu agar lebih besar & bulat */
+.card-bottom .btn {
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--dark-blue);
+    color: #ccc;
+    padding: 50px 0 0 0;
+    margin-top: 50px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    padding: 0 40px 40px 40px;
+}
+
+.footer-section {
+    flex: 1;
+}
+
+.footer-section h4 {
+    color: var(--white);
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.footer-section p, .footer-section ul li a {
+    color: #aaa;
+    line-height: 1.8;
+}
+
+.footer-section ul li {
+    margin-bottom: 8px;
+}
+
+.footer-section ul li a:hover {
+    color: var(--primary-orange);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #334;
+    font-size: 0.9em;
+}
