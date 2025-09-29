@@ -1,6 +1,6 @@
 /* ===== PENGATURAN DASAR & VARIABEL WARNA ===== */
 :root {
-    --primary-orange: #F97B22;
+    --primary-orange: #FE5E00; 
     --light-blue: #D6E4F0;
     --dark-blue: #1A2836;
     --text-color: #333;
@@ -175,7 +175,6 @@ ul {
 }
 
 .btn:hover {
-    transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
@@ -187,6 +186,22 @@ ul {
 .btn-secondary {
     background-color: var(--light-blue);
     color: var(--dark-blue);
+}
+
+.btn-card {
+    background-color: var(--primary-orange);
+    color: var(--white);
+    padding: 8px 20px; /* Padding lebih kecil */
+    border-radius: 12px;
+    font-weight: 600;
+    border: 2px solid transparent; /* Border transparan untuk menjaga ukuran saat hover */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.btn-card:hover {
+    background-color: var(--white);
+    color: var(--primary-orange);
+    border: 2px solid var(--primary-orange); /* Border muncul saat hover */
 }
 
 /* GANTI KODE CSS LAMA ANDA DENGAN INI */
@@ -228,6 +243,36 @@ main {
     font-size: 1.1em;
 }
 
+@media (max-width: 968px) {
+    .header-top {
+        flex-wrap: wrap;      
+        justify-content: space-between; 
+        padding: 20px;        
+        gap: 20px 0;          
+    }
+
+
+    .header-top .logo {
+        position: static;       
+        transform: none;        
+        order: -1;              
+        width: 100%;            
+        text-align: center;    
+    }
+
+    .header-top .logo img {
+        height: 60px; /* Kecilkan ukuran logo di mobile */
+    }
+
+    .user-greeting {
+        order: 0; 
+    }
+    
+    .header-actions {
+        order: 1; 
+    }
+}
+
 /* CSS ini tidak berubah, tapi pastikan ada */
 .content-wrapper {
     display: flex;
@@ -239,6 +284,7 @@ main {
 .filters {
     flex: 1;
     max-width: 280px;
+    min-width: 250px;
     background-color: var(--white);
     padding: 25px;
     border-radius: 12px;
@@ -283,97 +329,144 @@ main {
     padding: 15px 25px;
     border-radius: 12px;
     margin-bottom: 20px;
-    width: fit-content; 
+    width: fit-content;
     margin-left: auto;
+    /* Margin kanan dibuat 25px agar sejajar dengan padding card */
+    margin-right: 25px; 
 }
 
-
-.course-list {
-    flex: 3;
-}
 
 .course-card {
-    display: flex;
-    flex-direction: column; /* Mengatur susunan item ke bawah (top & bottom) */
+    display: flex; /* Gunakan Flexbox untuk layout utama */
+    gap: 25px;
     background-color: #6025E1;
     color: var(--white);
-    border-radius: 20px; /* Sudut lebih melengkung */
-    margin-bottom: 20px;
-    box-shadow: var(--shadow);
-    overflow: hidden; /* Memastikan semua konten tetap di dalam border-radius */
+    border-radius: 20px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    padding: 25px;
+    max-width: 800px;
 }
 
-
-.card-top {
+/* Kolom Kiri: Diberi lebar tetap dan tidak akan menyusut */
+.card-left {
     display: flex;
-    padding: 20px;
-    gap: 20px;
+    flex-direction: column;
+    justify-content: space-between; /* Mendorong harga ke bawah */
+    flex: 1.1;
 }
 
-.course-card img {
-    width: 400px; /* Lebar gambar disesuaikan */
-    height: 100%; /* Tinggi menyesuaikan proporsi */
+/* Gambar: Dibuat agar tidak terpotong */
+.card-left img {
+    width: 100%;
+    height: auto; /* Biarkan tinggi otomatis agar proporsi pas & tidak terpotong */
     border-radius: 8px;
-    object-fit: cover;
-    align-self: flex-start; /* Gambar menempel di atas */
+    object-fit: contain; /* Pastikan seluruh gambar terlihat */
 }
 
-.course-card .course-info {
-    flex-grow: 1;
-}
-
-.course-card h4 {
-    font-size: 1.5em; /* Judul sedikit lebih besar */
+.card-left .price {
+    font-size: 2.2em;
     font-weight: 700;
-    margin-bottom: 10px;
+    margin-top: 15px;
 }
 
-.course-card .description {
-    font-size: 0.95em;
-    opacity: 0.9;
-    margin-bottom: 12px;
-    line-height: 1.5;
-}
-
-.course-card .instructor {
-    font-size: 0.9em;
-    font-weight: 500;
-    opacity: 0.8;
-    margin-bottom: 15px;
-}
-
-.course-card .meta-info {
+/* Kolom Kanan: Dibuat fleksibel */
+.card-right {
     display: flex;
-    gap: 8px;
-    font-size: 0.85em;
-    opacity: 0.7;
+    flex-direction: column;
+    flex: 1;
 }
 
+/* Info Kursus: Dibuat 'tumbuh' untuk mendorong tombol ke bawah */
+.course-info {
+    flex-grow: 1; /* INI KUNCINYA: Blok info akan mengisi ruang kosong di atas tombol */
+}
 
-/* BAGIAN BAWAH */
-.card-bottom {
+.course-info h4 { font-size: 1.6em; font-weight: 700; margin-bottom: 10px; }
+.course-info .description { font-size: 0.95em; opacity: 0.9; margin-bottom: 12px; line-height: 1.6; }
+.course-info .instructor { font-size: 0.9em; font-weight: 500; opacity: 0.8; }
+.course-info .meta-info { display: flex; flex-wrap: wrap; gap: 8px; font-size: 0.85em; opacity: 0.7; margin-top: 15px; }
+
+.buttons {
     display: flex;
-    justify-content: space-between; /* Mendorong harga ke kiri & tombol ke kanan */
-    align-items: center;
-    padding: 15px 20px;
-    background-color: rgba(0, 0, 0, 0.1); /* Latar belakang sedikit lebih gelap */
+    gap: 15px;
+    margin-top: 20px;
+    align-self: flex-end; /* Mendorong tombol ke kanan */
 }
 
-.card-bottom .price {
-    font-size: 2em; /* Harga dibuat jauh lebih besar */
-    font-weight: 700;
-}
-
-.card-bottom .buttons {
-    display: flex;
-    gap: 10px;
-}
-
-/* Sesuaikan styling tombol jika perlu agar lebih besar & bulat */
-.card-bottom .btn {
-    padding: 12px 25px;
-    border-radius: 10px;
+/* Tombol Khusus untuk Card (tidak berubah) */
+.btn-card {
+    background-color: var(--primary-orange);
+    color: var(--white);
+    padding: 10px 30px;
+    border-radius: 30px;
+    font-weight: 600;
     font-size: 1em;
+    text-decoration: none;
+    border: 2px solid var(--primary-orange);
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-card:hover {
+    background-color: var(--white);
+    color: var(--primary-orange);
+}
+
+
+@media (max-width: 992px) {
+    /* 1. Atur Wrapper Utama */
+    .content-wrapper {
+        flex-direction: column; /* Susun item ke bawah: filter di atas, list di bawah */
+        align-items: center;   /* Ratakan semua item ke tengah secara horizontal */
+        gap: 20px;             /* Kurangi jarak antar item di mobile */
+    }
+
+    /* 2. Atur Lebar Filter agar Tetap */
+    .filters {
+        width: 100%;           /* Ambil lebar penuh dari ruang yang diberikan */
+        max-width: 350px;      /* Batasi lebar maksimal agar tidak terlalu lebar di tablet */
+    }
+
+    .list-header {
+        align-items: center;
+        margin-left: 170px;
+    }
+    
+    /* 3. Atur Lebar Course List */
+    .course-list {
+        width: 100%;           /* Ambil lebar penuh juga */
+        max-width: 450px;      /* Samakan dengan filter agar rata tengahnya pas */
+    }
+
+    /* 4. Atur Ulang Layout Card menjadi Vertikal */
+    .course-card {
+        flex-direction: column; /* Di dalam card, item juga disusun ke bawah */
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .card-left {
+        flex-basis: auto; /* Hapus lebar tetap kolom kiri di mobile */
+        align-items: center; /* Posisikan item di tengah */
+    }
+
+    .card-left img {
+        width: 100%;
+        height: 200px; /* Beri tinggi tetap agar gambar tidak terlalu besar */
+    }
+
+    .card-left .price {
+        font-size: 1.8em; /* Sedikit kecilkan harga di mobile */
+    }
+
+    .card-right {
+        align-items: center; /* Ratakan konten teks ke tengah */
+        text-align: center;  /* Buat teks jadi rata tengah */
+    }
+
+    .buttons {
+        align-self: center; /* Posisikan tombol di tengah juga */
+    }
 }
 
 /* ===== FOOTER ===== */
@@ -406,6 +499,18 @@ footer {
     line-height: 1.8;
 }
 
+.footer-section ul li a {
+    display: flex;
+    align-items: center; /* Membuat ikon dan teks sejajar secara vertikal */
+    transition: color 0.3s ease; /* Transisi hover dari style Anda sebelumnya */
+}
+
+.footer-section ul li a i {
+    font-size: 1.2em; /* Membuat ikon sedikit lebih besar dari teks */
+    width: 30px; /* Memberi ruang tetap untuk ikon agar semua teks rata */
+    margin-right: 8px; /* Jarak antara ikon dan teks */
+}
+
 .footer-section ul li {
     margin-bottom: 8px;
 }
@@ -419,4 +524,25 @@ footer {
     padding: 20px 0;
     border-top: 1px solid #334;
     font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        /* Ubah dari flexbox ke grid */
+        display: grid;
+        
+        /* Buat 2 kolom dengan lebar yang sama */
+        grid-template-columns: 1fr 1fr;
+        
+        /* Atur jarak antar kolom dan baris */
+        gap: 40px;
+        
+        /* Sesuaikan padding untuk mobile */
+        padding: 0 25px 25px 25px;
+    }
+
+    .footer-section {
+        /* Pastikan teks di setiap bagian rata kiri */
+        text-align: left;
+    }
 }
