@@ -3,72 +3,197 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Beranda - Online Learning Platform</title>
-    <link rel="stylesheet" href="css/home.css">
+    <title>SkillUp! - Online Learning Platform</title>
+    <link rel="stylesheet" href="css\home.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="header">
-        <div class="logo">OnlineLearn</div>
-        <nav class="navbar" id="mainNavbar">
+<!-- Header -->
+<header class="header">
+    <div class="header-container">
+        <div class="header-left">
+            <a href="#hero" class="logo-link">
+                <img src="logo.png" class="logo-image">
+            </a>
+            
+            <nav class="nav-buttons" id="desktopNav">
+                <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                <a href="#courses" class="nav-btn">Kursus</a>
+                <a href="#contact" class="nav-btn">Hubungi Kami</a>
             </nav>
-    </div>
-
-    <div class="container">
-        <h1 id="welcomeMessage"></h1>
-        <p>Selamat datang di platform pembelajaran online kami. Jelajahi berbagai kursus menarik!</p>
-        
-        <div class="content-section">
-            <h2>Tentang Kami</h2>
-            <p>OnlineLearn menyediakan berbagai kursus berkualitas tinggi untuk membantu Anda mengembangkan keterampilan baru dan mencapai tujuan karir Anda. Dengan pengajar ahli dan materi yang interaktif, kami berkomitmen untuk memberikan pengalaman belajar terbaik.</p>
-            <p>Mulai perjalanan belajar Anda hari ini!</p>
         </div>
+        
+        <div class="header-right">
+            <!-- Show when NOT logged in -->
+            <div class="auth-buttons" id="authButtons">
+                <a href="loginSignUp.html" class="login-btn">Masuk</a>
+                <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
+            </div>
+            
+<!-- Show when logged in (hidden by default) -->
+<div class="user-menu hidden" id="userMenu">
+    <span class="user-greeting" id="userGreeting">Halo, User!</span>
+    <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+    <a href="profile.html" class="profile-btn">
+        <i class="fas fa-user"></i>
+    </a>
+    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+</div>
+            
+            <button class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <nav class="mobile-nav">
+            <a href="#hero" class="nav-btn active">Halaman Utama</a>
+            <a href="#courses" class="nav-btn">Kursus</a>
+            <a href="#contact" class="nav-btn">Hubungi Kami</a>
+        </nav>
+        
+        <div class="mobile-auth" id="mobileAuth">
+            <!-- Will be populated based on login status by home.js -->
+            <a href="loginSignUp.html" class="login-btn" style="width: 100%; text-align: center; display: block;">Masuk</a>
+            <a href="loginSignUp.html#signup" class="signup-btn" style="width: 100%; text-align: center; display: block;">Daftar</a>
+        </div>
+    </div>
+</header>
 
-        <div class="course-preview">
-            <h2>Kursus Populer</h2>
-            <div class="course-list">
-                <div class="course-card">
-                    <h3>Dasar HTML & CSS</h3>
-                    <p>Membangun fondasi web pertama Anda.</p>
-                    <a href="#" class="btn-detail">Lihat Detail</a>
-                </div>
-                <div class="course-card">
-                    <h3>Dasar JavaScript</h3>
-                    <p>Mempelajari interaktivitas untuk web.</p>
-                    <a href="#" class="btn-detail">Lihat Detail</a>
-                </div>
-                <div class="course-card">
-                    <h3>React untuk Pemula</h3>
-                    <p>Membangun antarmuka pengguna modern.</p>
-                    <a href="#" class="btn-detail">Lihat Detail</a>
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero-card" id="hero">
+            <div class="hero-left">
+                <h2>Saatnya Membangun Masa Depan Pengalaman Anda</h2>
+                <p>Belajar keahlian yang paling dicari bersama para mitra dan institusi terbaik.</p>
+            </div>
+            <div class="hero-right">
+                <a href="https://youtube.com/watch?v=..." target="_blank" class="video-link">
+            <div class="video-placeholder"></div>
+        </a>
+    </div>
+    </section>
+
+  <!-- Career Section -->
+<section class="career-section" id="courses">
+    <h2>Siap Menata Ulang Karier Anda?</h2>
+    <p>Berikut kursus yang siap membantu ada mencapai karir mu:</p>
+    
+<div class="courses-grid">
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="course-card">
+        <div class="course-image">
+            <img src="img3.png" alt="Blender 3D">
+        </div>
+        <div class="course-info">
+            <h3>Blender 3D Modelling</h3>
+            <p>Dengan Instruktur Darius</p>
+            <small>Beginner • 6 Video</small>
+        </div>
+    </a>
+    
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="course-card">
+        <div class="course-image">
+            <img src="img2.png" alt="Blender 3D">
+        </div>
+        <div class="course-info">
+            <h3>Blender 3D Modelling</h3>
+            <p>Dengan Instruktur Darius</p>
+            <small>Beginner • 6 Video</small>
+        </div>
+    </a>
+    
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="course-card">
+        <div class="course-image">
+            <img src="img1.png" alt="Blender 3D">
+        </div>
+        <div class="course-info">
+            <h3>Blender 3D Modelling</h3>
+            <p>Dengan Instruktur Darius</p>
+            <small>Beginner • 6 Video</small>
+        </div>
+    </a>
+</div>
+    </div>
+    <div class="more-courses">
+        <a href="courses.html" class="more-btn">Lebih Banyak...</a>
+    </div>
+</section>
+
+        <!-- Contact Section -->
+        <section class="contact-section" id="contact">
+            <div class="contact-left">
+                <h2>Hubungi Kami</h2>
+                <p>Kami siap membantu anda untuk menjawab pertanyaan.</p>
+            </div>
+            <div class="contact-right">
+                <div class="contact-form">
+                    <h3>Kirim Pertanyaan</h3>
+                    <form id="contactForm">
+                        <div class="form-row">
+                            <input type="text" placeholder="Nama Lengkap" required>
+                            <input type="text" placeholder="Nomor Telepon" required>
+                        </div>
+                        <input type="text" placeholder="Pilih Topik Pertanyaan" required>
+                        <textarea placeholder="Pesan" rows="4" required></textarea>
+                        <button type="submit" class="submit-btn">Kirim</button>
+                    </form>
                 </div>
             </div>
-            <a href="courses.html" class="btn-more-courses">Lihat Semua Kursus <i class="fas fa-arrow-right"></i></a>
-        </div>
-    </div>
+        </section>
+    </main>
 
-    <div class="footer">
-        <div class="footer-section about">
-            <h3>OnlineLearn</h3>
-            <p>Platform pembelajaran online yang menyediakan kursus berkualitas tinggi untuk semua orang.</p>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Logo</h4>
+                <h5>Nama Online Coursenya</h5>
+                <p>Jadi kami adalah sebuah organisasi yang learning yang bergerak di bidang pendidikan, yapping yapping yapping yapping yapping yapping yap</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Kursus</h4>
+                <ul>
+                    <li><a href="#">Web dev</a></li>
+                    <li><a href="#">Game dev</a></li>
+                    <li><a href="#">Compilation</a></li>
+                    <li><a href="#">Database</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Media Sosial</h4>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-github"></i> Github</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fas fa-link"></i> 0812345678</li>
+                    <li><i class="fas fa-envelope"></i> SkillUp@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jln ini aja dulu</li>
+                    <li><i class="fas fa-clock"></i> Senin-Jumat 08:00 - 17:00</li>
+                </ul>
+            </div>
         </div>
-        <div class="footer-section links">
-            <h3>Link Cepat</h3>
-            <ul>
-                <li><a href="home.html">Halaman Utama</a></li>
-                <li><a href="courses.html">Kursus</a></li>
-                <li><a href="contact.html">Hubungi Kami</a></li>
-            </ul>
+        
+        <div class="footer-bottom">
+            <p>© SkillUp. All rights reserved</p>
         </div>
-        <div class="footer-section contact">
-            <h3>Hubungi Kami</h3>
-            <p><i class="fas fa-phone"></i> +62 812-3456-7890</p>
-            <p><i class="fas fa-envelope"></i> info@onlinelearn.com</p>
-            <p><i class="fas fa-map-marker-alt"></i> Jl. Contoh No. 123, Jakarta</p>
-        </div>
-    </div>
+    </footer>
 
-    <script src="js/home.js" type="module"></script>
+    <!-- Load External JavaScript -->
+    <script src="js\home.js"></script>
 </body>
 </html>
