@@ -32,9 +32,14 @@ body {
     background: linear-gradient(to top, #75F9D1, #B49DEB);
 }
 
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 30px auto; /* Memberi margin atas/bawah dan otomatis di kiri/kanan untuk centering */
+}
+
 
 /* ===== HEADER ===== */
-/* Header Styles */
 .header {
     background: linear-gradient(90deg, #4FD1C5 0%, #63B3ED 25%, #667EEA 50%, #9F7AEA 75%, #B794F4 100%);
     position: sticky;
@@ -48,19 +53,31 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 20px;
+}
+
+/* Penyesuaian untuk layout 3 kolom */
+.header-left, .header-right {
+    flex: 1; /* Memberi ruang yang sama untuk sisi kiri dan kanan */
+    display: flex;
+    align-items: center;
 }
 
 .header-left {
-    display: flex;
-    align-items: center;
-    gap: 30px;
+    justify-content: flex-start; /* Meratakan item ke kiri */
 }
+
+.header-center {
+    flex: 0 1 auto; /* Mencegah logo menyusut atau tumbuh */
+}
+
+.header-right {
+    justify-content: flex-end; /* Meratakan item ke kanan */
+}
+
 
 .logo-link {
     display: flex;
     align-items: center;
-    margin-left: 70px;
     text-decoration: none;
 }
 
@@ -97,12 +114,6 @@ body {
 
 .nav-btn.active {
     background: #FF6B35;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 12px;
 }
 
 .auth-buttons {
@@ -227,23 +238,10 @@ body {
     transition: all 0.3s ease;
 }
 
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(8px, 8px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -7px);
-}
-
-/* Mobile Menu */
 .mobile-menu {
     display: none;
     position: fixed;
-    top: 70px;
+    top: 70px; 
     left: 0;
     right: 0;
     background: linear-gradient(90deg, #4FD1C5 0%, #63B3ED 25%, #667EEA 50%, #9F7AEA 75%, #B794F4 100%);
@@ -275,119 +273,17 @@ body {
     gap: 10px;
 }
 
-.mobile-menu .user-menu {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid rgba(255,255,255,0.2);
-}
-
-.mobile-menu .payment-history,
-.mobile-menu .logout-btn {
-    width: 100%;
-    padding: 12px 20px;
-    text-align: center;
-}
-
-.mobile-menu .profile-btn {
-    width: 100%;
-    border-radius: 12px;
-    height: auto;
-    padding: 12px 20px;
-}
-
-/* Hidden utility class */
 .hidden {
     display: none !important;
 }
 
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-ul {
-    list-style: none;
-}
-
-/* ===== BARIS NAVIGASI (UNGU) ===== */
-.main-nav {
-    background-color: #6025E1; 
-    padding: 10px 0;
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    gap: 60px;
-}
-
-.main-nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 1.1em;
-    font-weight: 500;
-    padding: 5px 0;
-    border-bottom: 2px solid transparent;
-    transition: border-color 0.3s ease;
-}
-
-.main-nav ul li a:hover,
-.main-nav ul li a.active {
-    border-bottom: 2px solid white; 
-}
-
-/* ===== Tombol (Button) ===== */
-.btn {
-    padding: 10px 20px;
-    border-radius: 8px;
-    font-weight: 600;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.btn:hover {
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-}
-
-.btn-primary {
-    background-color: var(--primary-orange);
-    color: var(--white);
-}
-
-.btn-secondary {
-    background-color: var(--light-blue);
-    color: var(--dark-blue);
-}
-
-.btn-card {
-    background-color: var(--primary-orange);
-    color: var(--white);
-    padding: 8px 20px;
-    border-radius: 12px;
-    font-weight: 600;
-    border: 2px solid transparent; 
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-}
-
-.btn-card:hover {
-    background-color: var(--white);
-    color: var(--primary-orange);
-    border: 2px solid var(--primary-orange);
+@media (max-width: 800px) {
+    .header { padding: 15px 20px; }
+    .hamburger { display: flex; }
+    .nav-buttons, .auth-buttons, .user-greeting { display: none; }
+    .header-right .user-menu .payment-history, .header-right .user-menu .logout-btn { display: none; }
+    .logo-image { height: 40px; }
+    .logo-link { margin-left: 0; }
 }
 
 
@@ -639,60 +535,87 @@ main {
 }
 
 /* ===== FOOTER ===== */
-footer {
-    background-color: var(--dark-blue);
-    color: #ccc;
-    padding: 50px 0 0 0;
-    margin-top: 50px;
+/* Footer */
+.footer {
+    background: #1F2937;
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: 40px;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 40px;
-    padding: 0 40px 40px 40px;
+    margin-bottom: 32px;
 }
 
-.footer-section {
-    flex: 1;
+.footer-logo {
+    height: 40px; /* Mengatur tinggi logo menjadi 40px */
+    margin-bottom: 15px; /* Memberi jarak antara logo dan teks di bawahnya */
 }
 
 .footer-section h4 {
-    color: var(--white);
-    margin-bottom: 15px;
-    font-size: 1.1em;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: white;
 }
 
-.footer-section p, .footer-section ul li a {
-    color: #aaa;
-    line-height: 1.8;
+.footer-section h5 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #E5E7EB;
 }
 
-.footer-section ul li a {
-    display: flex;
-    align-items: center;
-    transition: color 0.3s ease; 
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #D1D5DB;
+    font-weight: 400;
 }
 
-.footer-section ul li a i {
-    font-size: 1.2em; 
-    width: 30px; 
-    margin-right: 8px; 
+.footer-section ul {
+    list-style: none;
 }
 
 .footer-section ul li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #D1D5DB;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
 }
 
 .footer-section ul li a:hover {
-    color: var(--primary-orange);
+    color: #FF6B35;
+}
+
+.footer-section ul li i {
+    width: 16px;
+    font-size: 14px;
 }
 
 .footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 20px;
     text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #334;
-    font-size: 0.9em;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: #9CA3AF;
+    font-size: 14px;
 }
 
 @media (max-width: 768px) {
@@ -705,5 +628,32 @@ footer {
 
     .footer-section {
         text-align: left;
+    }
+}
+
+@media (max-width: 850px) {
+    .header {
+        padding: 15px 20px;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    /* Sembunyikan nav-buttons di kiri dan auth di kanan */
+    .header-left .nav-buttons, 
+    .header-right .auth-buttons, 
+    .header-right .user-menu {
+        display: none;
+    }
+
+    /* Pastikan hamburger ada di dalam .header-right agar tetap di kanan */
+    .header-right {
+        justify-content: flex-end;
+    }
+    
+    /* Pusatkan logo di tengah dengan mengosongkan sisi kiri */
+    .header-left {
+        flex: 1;
     }
 }

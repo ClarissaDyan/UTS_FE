@@ -14,35 +14,33 @@
     <header class="header">
         <div class="header-container">
             <div class="header-left">
-                
-                
                 <nav class="nav-buttons" id="desktopNav">
                     <a href="#hero" class="nav-btn active">Halaman Utama</a>
                     <a href="#courses" class="nav-btn">Kursus</a>
                     <a href="#contact" class="nav-btn">Hubungi Kami</a>
                 </nav>
+            </div>
+            
+            <div class="header-center">
                 <a href="#hero" class="logo-link">
-                    <img src="/static/Logo.png" class="logo-image">
+                    <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
                 </a>
-                
             </div>
             
             <div class="header-right">
-                <!-- Show when NOT logged in -->
                 <div class="auth-buttons" id="authButtons">
                     <a href="loginSignUp.html" class="login-btn">Masuk</a>
                     <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
                 </div>
                 
-    <!-- Show when logged in (hidden by default) -->
-    <div class="user-menu hidden" id="userMenu">
-        <span class="user-greeting" id="userGreeting">Halo, User!</span>
-        <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
-        <a href="profile.html" class="profile-btn">
-            <i class="fas fa-user"></i>
-        </a>
-        <button class="logout-btn" onclick="handleLogout()">Keluar</button>
-    </div>
+                <div class="user-menu hidden" id="userMenu">
+                    <span class="user-greeting" id="userGreeting">Halo, User!</span>
+                    <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+                </div>
                 
                 <button class="hamburger" id="hamburger">
                     <span></span>
@@ -52,7 +50,6 @@
             </div>
         </div>
         
-        <!-- Mobile Menu -->
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
                 <a href="#hero" class="nav-btn active">Halaman Utama</a>
@@ -61,7 +58,6 @@
             </nav>
             
             <div class="mobile-auth" id="mobileAuth">
-                <!-- Will be populated based on login status by home.js -->
                 <a href="loginSignUp.html" class="login-btn" style="width: 100%; text-align: center; display: block;">Masuk</a>
                 <a href="loginSignUp.html#signup" class="signup-btn" style="width: 100%; text-align: center; display: block;">Daftar</a>
             </div>
@@ -265,40 +261,47 @@
         </main>
     </div>
 
-    <footer>
+    <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section about">
-                <h4>SkillUp!</h4>
-                <p>Jadi kami adalah sebuah website Online Course yang menyediakan berbagai macam kursus yapping yapping yapping.</p>
+            <div class="footer-section">
+                <img src="/static/Logo.png" alt="logo.png" class="footer-logo">
+                <p>Jadi kami adalah sebuah organisasi yang learning yang bergerak di bidang pendidikan, yapping yapping yapping yapping yapping yapping yap</p>
             </div>
+            
             <div class="footer-section">
                 <h4>Kursus</h4>
                 <ul>
-                    <li><a href="#">Adobe After Effects</a></li>
-                    <li><a href="#">Blender</a></li>
-                    <li><a href="#">Roblox</a></li>
+                    <li><a href="#">Web dev</a></li>
+                    <li><a href="#">Game dev</a></li>
+                    <li><a href="#">Compilation</a></li>
+                    <li><a href="#">Database</a></li>
                 </ul>
             </div>
+            
             <div class="footer-section">
                 <h4>Media Sosial</h4>
                 <ul>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fa-brands fa-github"></i> Github</a></li>
-                    <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i> Youtube</a></li>
-                    <li><a href="#"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-github"></i> Github</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
                 </ul>
             </div>
+            
             <div class="footer-section">
                 <h4>Hubungi Kami</h4>
                 <ul>
-                    <li><a href="#">08121212121</a></li>
-                    <li><a href="#">Jalan Jauh No. 12</a></li>
+                    <li><i class="fas fa-link"></i> 0812345678</li>
+                    <li><i class="fas fa-envelope"></i> SkillUp@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jln ini aja dulu</li>
+                    <li><i class="fas fa-clock"></i> Senin-Jumat 08:00 - 17:00</li>
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            &copy; SkillUp. All rights reserved
+            <p>© SkillUp. All rights reserved</p>
         </div>
     </footer>
 </body>

@@ -4,44 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkillUp! - Online Learning Platform</title>
-    <link rel="stylesheet" href="css\home.css">
+    <link rel="stylesheet" href="css/home.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
 <body>
 
-<!-- Header -->
 <header class="header">
     <div class="header-container">
         <div class="header-left">
-            
-            
             <nav class="nav-buttons" id="desktopNav">
                 <a href="#hero" class="nav-btn active">Halaman Utama</a>
                 <a href="#courses" class="nav-btn">Kursus</a>
                 <a href="#contact" class="nav-btn">Hubungi Kami</a>
             </nav>
+        </div>
+        
+        <div class="header-center">
             <a href="#hero" class="logo-link">
-                <img src="/static/Logo.png" class="logo-image">
+                <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
             </a>
-            
         </div>
         
         <div class="header-right">
-            <!-- Show when NOT logged in -->
             <div class="auth-buttons" id="authButtons">
                 <a href="loginSignUp.html" class="login-btn">Masuk</a>
                 <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
             </div>
             
-<!-- Show when logged in (hidden by default) -->
-<div class="user-menu hidden" id="userMenu">
-    <span class="user-greeting" id="userGreeting">Halo, User!</span>
-    <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
-    <a href="profile.html" class="profile-btn">
-        <i class="fas fa-user"></i>
-    </a>
-    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
-</div>
+            <div class="user-menu hidden" id="userMenu">
+                <span class="user-greeting" id="userGreeting">Halo, User!</span>
+                <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+                <a href="profile.html" class="profile-btn">
+                    <i class="fas fa-user"></i>
+                </a>
+                <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+            </div>
             
             <button class="hamburger" id="hamburger">
                 <span></span>
@@ -51,7 +48,6 @@
         </div>
     </div>
     
-    <!-- Mobile Menu -->
     <div class="mobile-menu" id="mobileMenu">
         <nav class="mobile-nav">
             <a href="#hero" class="nav-btn active">Halaman Utama</a>
@@ -60,16 +56,13 @@
         </nav>
         
         <div class="mobile-auth" id="mobileAuth">
-            <!-- Will be populated based on login status by home.js -->
             <a href="loginSignUp.html" class="login-btn" style="width: 100%; text-align: center; display: block;">Masuk</a>
             <a href="loginSignUp.html#signup" class="signup-btn" style="width: 100%; text-align: center; display: block;">Daftar</a>
         </div>
     </div>
 </header>
 
-    <!-- Main Content -->
     <main class="main-content">
-        <!-- Hero Section -->
         <section class="hero-card" id="hero">
             <div class="hero-left">
                 <h2>Saatnya Membangun Masa Depan Pengalaman Anda</h2>
@@ -77,57 +70,54 @@
             </div>
             <div class="hero-right">
                 <a href="https://youtube.com/watch?v=..." target="_blank" class="video-link">
-            <div class="video-placeholder"></div>
-        </a>
-    </div>
-    </section>
+                    <div class="video-placeholder"></div>
+                </a>
+            </div>
+        </section>
 
-  <!-- Career Section -->
-<section class="career-section" id="courses">
-    <h2>Siap Menata Ulang Karier Anda?</h2>
-    <p>Berikut kursus yang siap membantu ada mencapai karir mu:</p>
-    
-<div class="courses-grid">
-    <a href="/DetailBlender.html" target="_blank" class="course-card">
-        <div class="course-image">
-            <img src="/static/Blender.jpg" alt="Blender 3D">
-        </div>
-        <div class="course-info">
-            <h3>Blender 3D Modelling [2020]</h3>
-            <p>Dengan Instruktur Darius</p>
-            <small>Beginner • 6 Video</small>
-        </div>
-    </a>
-    
-    <a href="/DetailAdobe.html" target="_blank" class="course-card">
-        <div class="course-image">
-            <img src="/static/AdobeEA.jpeg" alt="Blender 3D">
-        </div>
-        <div class="course-info">
-            <h3>Adobe After Effect [2020]</h3>
-            <p>Dengan Instruktur Darius</p>
-            <small>Beginner • 6 Video</small>
-        </div>
-    </a>
-    
-    <a href="/DetailStruktur.html" target="_blank" class="course-card">
-        <div class="course-image">
-            <img src="/static/StrukturData.jpg" alt="Blender 3D">
-        </div>
-        <div class="course-info">
-            <h3>Kuliah Struktur Data [2020]</h3>
-            <p>Dengan Instruktur Darius</p>
-            <small>Beginner • 6 Video</small>
-        </div>
-    </a>
-</div>
-    </div>
-    <div class="more-courses">
-        <a href="produkList.html" class="more-btn">Lebih Banyak...</a>
-    </div>
-</section>
+        <section class="career-section" id="courses">
+            <h2>Siap Menata Ulang Karier Anda?</h2>
+            <p>Berikut kursus yang siap membantu ada mencapai karir mu:</p>
+            
+            <div class="courses-grid">
+                <a href="/DetailBlender.html" target="_blank" class="course-card">
+                    <div class="course-image">
+                        <img src="/static/Blender.jpg" alt="Blender 3D">
+                    </div>
+                    <div class="course-info">
+                        <h3>Blender 3D Modelling [2020]</h3>
+                        <p>Dengan Instruktur Darius</p>
+                        <small>Beginner • 6 Video</small>
+                    </div>
+                </a>
+                
+                <a href="/DetailAdobe.html" target="_blank" class="course-card">
+                    <div class="course-image">
+                        <img src="/static/AdobeEA.jpeg" alt="Adobe After Effects">
+                    </div>
+                    <div class="course-info">
+                        <h3>Adobe After Effect [2020]</h3>
+                        <p>Dengan Instruktur Darius</p>
+                        <small>Beginner • 6 Video</small>
+                    </div>
+                </a>
+                
+                <a href="/DetailStruktur.html" target="_blank" class="course-card">
+                    <div class="course-image">
+                        <img src="/static/StrukturData.jpg" alt="Struktur Data">
+                    </div>
+                    <div class="course-info">
+                        <h3>Kuliah Struktur Data [2020]</h3>
+                        <p>Dengan Instruktur Darius</p>
+                        <small>Beginner • 6 Video</small>
+                    </div>
+                </a>
+            </div>
+            <div class="more-courses">
+                <a href="produkList.html" class="more-btn">Lebih Banyak...</a>
+            </div>
+        </section>
 
-        <!-- Contact Section -->
         <section class="contact-section" id="contact">
             <div class="contact-left">
                 <h2>Hubungi Kami</h2>
@@ -150,12 +140,10 @@
         </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
-                <h4>Logo</h4>
-                <h5>Nama Online Coursenya</h5>
+                <img src="/static/Logo.png" alt="logo.png" class="footer-logo">
                 <p>Jadi kami adalah sebuah organisasi yang learning yang bergerak di bidang pendidikan, yapping yapping yapping yapping yapping yapping yap</p>
             </div>
             
@@ -196,7 +184,6 @@
         </div>
     </footer>
 
-    <!-- Load External JavaScript -->
-    <script src="js\home.js"></script>
+    <script src="js/home.js"></script>
 </body>
 </html>
