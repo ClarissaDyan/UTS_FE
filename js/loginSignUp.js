@@ -1,6 +1,4 @@
 import { initializeData, getAllUsers, addUser, setCurrentUser, getCurrentUser } from './localStorageManager.js';
-
-
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -20,7 +18,6 @@ const signupForm = document.getElementById('signupForm');
 
 document.addEventListener('DOMContentLoaded', function() {
     initializeData(); 
-    
     const authType = window.opener && window.opener.getAuthType ? window.opener.getAuthType() : null;
     if (authType === 'signup') {
         showSignupForm();
@@ -72,6 +69,14 @@ function showSignupForm() {
     clearMessages();
 }
 
+function showForm(type) {
+    if (type === 'login') {
+        showLoginForm();
+    } else {
+        showSignupForm();
+    }
+}
+
 function handleLogin(e) {
     e.preventDefault();
     
@@ -99,8 +104,7 @@ function handleLogin(e) {
     const user = users.find(u => u.email === email && u.password === password);
     
     if (user) {
-         setCurrentUser(user); 
-        
+        setCurrentUser(user);         
         showButtonLoading('loginForm');
         
         setTimeout(() => {

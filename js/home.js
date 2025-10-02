@@ -40,8 +40,7 @@ function updateAuthUI() {
         }
         if (userMenu) {
             userMenu.classList.add('hidden');
-        }
-        
+        }        
         resetMobileMenu();
     }
 }
@@ -71,14 +70,12 @@ function resetMobileMenu() {
         `;
     }
 }
-
 function handleContactForm() {
     const contactForm = document.getElementById('contact');
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            console.log('Form submitted!');
-            
+            console.log('Form submitted!');            
             const inputs = this.querySelectorAll('input, textarea');
             const name = inputs[0].value.trim();
             const phone = inputs[1].value.trim();
@@ -110,7 +107,6 @@ function handleContactForm() {
         });
     }
 }
-
 
 function handleLogout() {
     if (confirm('Apakah Anda yakin ingin keluar?')) {
@@ -147,7 +143,6 @@ function initializeEventListeners() {
         });
     }
 }
-
 window.addEventListener('resize', function() {
     if (window.innerWidth > 768) {
         closeMobileMenu();
