@@ -1,8 +1,6 @@
-// User storage and current user
-let currentUser = null;
-let users = []; // In-memory array for demo
+import { initializeData, getAllUsers, addUser, setCurrentUser, getCurrentUser } from './localStorageManager.js';
 
-// Validation functions
+
 function isValidEmail(email) {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
 }
@@ -15,14 +13,14 @@ function isValidName(name) {
     return name.length >= 3 && name.length <= 32 && !/\d/.test(name);
 }
 
-// DOM elements
 const loginTab = document.getElementById('loginTab');
 const signupTab = document.getElementById('signupTab');
 const loginForm = document.getElementById('loginForm');
 const signupForm = document.getElementById('signupForm');
 
-// Initialize page
 document.addEventListener('DOMContentLoaded', function() {
+    initializeData(); 
+    
     const authType = window.opener && window.opener.getAuthType ? window.opener.getAuthType() : null;
     if (authType === 'signup') {
         showSignupForm();
@@ -47,6 +45,15 @@ function setupEventListeners() {
             alert(`Login dengan ${platform} belum tersedia. Silakan gunakan email dan password.`);
         });
     });
+
+    const togglePasswordBtns = document.querySelectorAll('.toggle-password');
+    togglePasswordBtns.forEach(btn => {
+        btn.addEventListener('click', function() {
+            const passwordInput = this.previousElementSibling; 
+            togglePasswordVisibility(passwordInput);
+        });
+    });
+
 }
 
 function showLoginForm() {
@@ -63,14 +70,6 @@ function showSignupForm() {
     signupForm.classList.add('active');
     loginForm.classList.remove('active');
     clearMessages();
-}
-
-function showForm(type) {
-    if (type === 'login') {
-        showLoginForm();
-    } else {
-        showSignupForm();
-    }
 }
 
 function handleLogin(e) {
@@ -96,14 +95,11 @@ function handleLogin(e) {
         showError('loginError', 'Format email tidak valid');
         return;
     }
-    
+    const users = getAllUsers(); 
     const user = users.find(u => u.email === email && u.password === password);
     
     if (user) {
-        currentUser = user;
-
-        sessionStorage.setItem('isLoggedIn', 'true');
-        sessionStorage.setItem('userName', user.fullname);
+         setCurrentUser(user); 
         
         showButtonLoading('loginForm');
         
@@ -147,7 +143,8 @@ function handleSignup(e) {
         return;
     }
     
-    if (users.find(u => u.email === email)) {
+    const existingUsers = getAllUsers(); 
+    if (existingUsers.find(u => u.email === email)) {
         showError('signupError', 'Email sudah terdaftar');
         return;
     }
@@ -211,7 +208,7 @@ function handleSignup(e) {
         createdAt: new Date().toISOString()
     };
     
-    users.push(newUser);
+    addUser(newUser); 
     
     showButtonLoading('signupForm');
     
@@ -261,16 +258,25 @@ function showButtonLoading(formId) {
     }, 1000);
 }
 
-function togglePassword(inputId) {
-    const input = document.getElementById(inputId);
-    const icon = input.parentElement.querySelector('.toggle-password i');
+function togglePasswordVisibility(inputElement) {
+    if (!inputElement) {
+        console.error("Input element not found for password toggle.");
+        return;
+    }
+
+    const icon = inputElement.parentElement.querySelector('.toggle-password i');
+
+    if (!icon) {
+        console.error("Password toggle icon not found.");
+        return;
+    }
     
-    if (input.type === 'password') {
-        input.type = 'text';
+    if (inputElement.type === 'password') {
+        inputElement.type = 'text';
         icon.classList.remove('fa-eye');
         icon.classList.add('fa-eye-slash');
     } else {
-        input.type = 'password';
+        inputElement.type = 'password';
         icon.classList.remove('fa-eye-slash');
         icon.classList.add('fa-eye');
     }
@@ -284,11 +290,13 @@ function addFloatingLabels() {
     const inputs = document.querySelectorAll('.input-group input');
     
     inputs.forEach(input => {
-        const label = input.previousElementSibling;
+        const label = input.nextElementSibling; 
         if (label && label.tagName === 'LABEL') {
-            const inputGroup = input.parentElement;
-            inputGroup.classList.add('floating');
-            input.parentElement.appendChild(label);
+            const inputGroup = input.closest('.input-group'); 
+            
+            if (inputGroup) {
+                inputGroup.classList.add('floating');
+            }
             
             if (!input.placeholder) {
                 input.placeholder = ' ';
@@ -306,13 +314,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         
         input.addEventListener('input', function() {
-            this.parentElement.classList.remove('error');
+            this.closest('.input-group').classList.remove('error'); 
         });
     });
 });
 
 function validateField(input) {
-    const inputGroup = input.parentElement;
+    const inputGroup = input.closest('.input-group'); 
     const value = input.value.trim();
     
     inputGroup.classList.remove('error', 'success');
