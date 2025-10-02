@@ -11,26 +11,59 @@
     <title>SkillUp! - Adobe After Effect</title>
 </head>
 <body>
-    <header class="header-v2">
-        <div class="header-top">
-            <span class="user-greeting">Halo, User</span>
-            <div class="logo">
-                <img src="Logo.png" alt="SkillUp! Logo">
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <nav class="nav-buttons" id="desktopNav">
+                    <a href="home.html#hero" class="nav-btn">Halaman Utama</a>
+                    <a href="home.html#courses" class="nav-btn">Kursus</a>
+                    <a href="home.html#contact" class="nav-btn">Hubungi Kami</a>
+                </nav>
             </div>
-            <div class="header-actions">
-                <a href="#" class="btn-payment">Riwayat Pembayaran</a>
-                <a href="#" class="btn-icon"><span>➔</span></a>
+            
+            <div class="header-center">
+                <a href="#hero" class="logo-link">
+                    <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
+                </a>
+            </div>
+            
+            <div class="header-right">
+                <div class="auth-buttons" id="authButtons">
+                    <a href="loginSignUp.html" class="login-btn">Masuk</a>
+                    <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
+                </div>
+                
+                <div class="user-menu hidden" id="userMenu">
+                    <span class="user-greeting" id="userGreeting">Halo, User!</span>
+                    <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+                </div>
+                
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
-
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#">Halaman Utama</a></li>
-                <li><a href="/produkList.html" class="active">Kursus</a></li>
-                <li><a href="#">Hubungi Kami</a></li>
-            </ul>
-        </nav>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                <a href="#courses" class="nav-btn">Kursus</a>
+                <a href="#contact" class="nav-btn">Hubungi Kami</a>
+            </nav>
+            
+            <div class="mobile-auth" id="mobileAuth">
+                <a href="loginSignUp.html" class="login-btn" style="width: 100%; text-align: center; display: block;">Masuk</a>
+                <a href="loginSignUp.html#signup" class="signup-btn" style="width: 100%; text-align: center; display: block;">Daftar</a>
+            </div>
+        </div>
     </header>
+
 
     <div class="container">
         <main>
@@ -51,7 +84,7 @@
                         </p>
                     </div>
                     <div class="course-media-placeholder">
-                            <img src="AdobeEA.jpeg" alt="adobe after Effect">
+                            <img src="/static/AdobeEA.jpeg" alt="adobe after Effect">
                     </div>
                 </div>
 
@@ -226,42 +259,51 @@
         </div>
     </div>
 
-    <footer>
+    <footer class="footer">
         <div class="footer-content">
-            <div class="footer-section about">
-                <h4>SkillUp!</h4>
-                <p>Jadi kami adalah sebuah website Online Course yang menyediakan berbagai macam kursus yapping yapping yapping.</p>
+            <div class="footer-section">
+                <img src="/static/Logo.png" alt="logo.png" class="footer-logo">
+                <p>Jadi kami adalah sebuah organisasi yang learning yang bergerak di bidang pendidikan, yapping yapping yapping yapping yapping yapping yap</p>
             </div>
+            
             <div class="footer-section">
                 <h4>Kursus</h4>
                 <ul>
-                    <li><a href="#">Adobe After Effects</a></li>
-                    <li><a href="#">Blender</a></li>
-                    <li><a href="#">Roblox</a></li>
+                    <li><a href="#">Web dev</a></li>
+                    <li><a href="#">Game dev</a></li>
+                    <li><a href="#">Compilation</a></li>
+                    <li><a href="#">Database</a></li>
                 </ul>
             </div>
+            
             <div class="footer-section">
                 <h4>Media Sosial</h4>
                 <ul>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
-                    <li><a href="#"><i class="fa-brands fa-github"></i> Github</a></li>
-                    <li><a href="#"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i> Youtube</a></li>
-                    <li><a href="#"><i class="fa-brands fa-whatsapp"></i> Whatsapp</a></li>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-github"></i> Github</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
                 </ul>
             </div>
+            
             <div class="footer-section">
                 <h4>Hubungi Kami</h4>
                 <ul>
-                    <li><a href="#">08121212121</a></li>
-                    <li><a href="#">Jalan Jauh No. 12</a></li>
+                    <li><i class="fas fa-link"></i> 0812345678</li>
+                    <li><i class="fas fa-envelope"></i> SkillUp@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jln ini aja dulu</li>
+                    <li><i class="fas fa-clock"></i> Senin-Jumat 08:00 - 17:00</li>
                 </ul>
             </div>
         </div>
+        
         <div class="footer-bottom">
-            &copy; SkillUp. All rights reserved
+            <p>© SkillUp. All rights reserved</p>
         </div>
     </footer>
+
+    <script src="js/home.js" type="module"></script>
 
     <script>
         const showMoreButton = document.querySelector('.show-more-btn');
@@ -288,12 +330,13 @@
                 });
 
                 // Ubah teks dan ikon tombol
-                showMoreButton.innerHTML = 'Lebih sedikit <i class="fa-solid fa-chevron-down"></i>';
+                showMoreButton.innerHTML = 'Lebih sedikit <i class="fa-solid fa-chevron-up"></i>';
                 showMoreButton.classList.add('expanded');
             }
         });
 
         //baru sadar cooeg kalo dlnya jumat
     </script>
+    
 </body>
 </html>

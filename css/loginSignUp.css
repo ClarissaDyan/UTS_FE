@@ -38,18 +38,18 @@ body {
     color: rgb(0, 0, 0);
     font-weight: 500;
     cursor: pointer;
-    display: flex;
+    display: inline-flex; /* Ubah dari flex ke inline-flex */
     align-items: center;
     gap: 8px;
     backdrop-filter: blur(20px);
     transition: all 0.3s ease;
+    text-decoration: none;
 }
 
 .btn-back-home:hover {
     background: rgba(255, 255, 255, 0.3);
     transform: translateY(-2px);
 }
-
 /* Tab Login / SignUp - Outside Card */
 .auth-tabs {
     display: flex;

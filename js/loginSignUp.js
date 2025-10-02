@@ -286,9 +286,6 @@ function togglePasswordVisibility(inputElement) {
     }
 }
 
-function goToHome() {
-    window.location.href = 'home.html';
-}
 
 function addFloatingLabels() {
     const inputs = document.querySelectorAll('.input-group input');
