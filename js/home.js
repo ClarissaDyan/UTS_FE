@@ -1,8 +1,28 @@
-import { getCurrentUser, clearCurrentUser } from './localStorageManager.js';
+// Uncomment jika menggunakan localStorage
+// import { getCurrentUser, clearCurrentUser } from './localStorageManager.js';
+
+let currentUser = null;
+
+// Fungsi sementara jika localStorageManager belum ada
+function getCurrentUser() {
+    try {
+        const user = localStorage.getItem('currentUser');
+        return user ? JSON.parse(user) : null;
+    } catch {
+        return null;
+    }
+}
+
+function clearCurrentUser() {
+    localStorage.removeItem('currentUser');
+}
+
 window.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Loaded - Initializing...');
     loadCurrentUser();
     checkLoginStatus();
     initializeEventListeners();
+    initializeHamburgerMenu();
 });
 
 function loadCurrentUser() {
@@ -70,6 +90,54 @@ function resetMobileMenu() {
         `;
     }
 }
+
+// Fungsi untuk initialize hamburger menu
+function initializeHamburgerMenu() {
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    
+    console.log('Hamburger:', hamburger);
+    console.log('Mobile Menu:', mobileMenu);
+    
+    if (hamburger && mobileMenu) {
+        console.log('Adding click listener to hamburger');
+        
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            console.log('Hamburger clicked!');
+            
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            
+            console.log('Hamburger active:', hamburger.classList.contains('active'));
+            console.log('Menu active:', mobileMenu.classList.contains('active'));
+        });
+    } else {
+        console.error('Hamburger or Mobile Menu not found!');
+    }
+    
+    // Close menu saat link diklik
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav .nav-btn');
+    mobileNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+    });
+    
+    // Close menu saat klik di luar menu
+    document.addEventListener('click', function(event) {
+        if (!mobileMenu || !hamburger) return;
+        
+        const isClickInsideMenu = mobileMenu.contains(event.target);
+        const isClickOnHamburger = hamburger.contains(event.target);
+        
+        if (!isClickInsideMenu && !isClickOnHamburger && mobileMenu.classList.contains('active')) {
+            closeMobileMenu();
+        }
+    });
+}
+
 function handleContactForm() {
     const contactForm = document.getElementById('contact');
     if (contactForm) {
@@ -103,7 +171,6 @@ function handleContactForm() {
             messageEl.textContent = 'Pesan Anda berhasil dikirim. Tim kami akan segera menghubungi Anda.';
             messageEl.className = 'form-message success';
             contactForm.reset();
-
         });
     }
 }
@@ -143,11 +210,22 @@ function initializeEventListeners() {
         });
     }
 }
+
 window.addEventListener('resize', function() {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth > 850) {
         closeMobileMenu();
     }
 });
+
 function isValidPhone(phone) {
     return /^08\d{8,14}$/.test(phone);
 }
+
+// Make functions available globally for onclick handlers
+window.handleLogout = handleLogout;
+window.handlePaymentHistory = function() {
+    window.location.href = 'riwayat.html';
+};
+window.handleProfile = function() {
+    window.location.href = 'profile.html';
+};
