@@ -287,8 +287,6 @@ function togglePasswordVisibility(inputElement) {
 }
 
 
-<<<<<<< HEAD
-=======
 function addFloatingLabels() {
     const inputs = document.querySelectorAll('.input-group input');
     
@@ -307,7 +305,6 @@ function addFloatingLabels() {
         }
     });
 }
->>>>>>> 9c99e76e43b09a8a73c128d76dae88cf6b4defb1
 
 document.addEventListener('DOMContentLoaded', function() {
     const inputs = document.querySelectorAll('input[required]');
