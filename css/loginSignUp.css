@@ -427,4 +427,129 @@ body {
         padding: 12px 25px;
         font-size: 15px;
     }
+    /* Tambahkan kode ini di akhir file css/loginSignUp.css */
+
+/* Animasi */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Pesan Error dan Sukses yang lebih spesifik */
+.error-message {
+    background-color: #FCA5A5; /* Warna merah */
+    color: #991B1B; /* Warna teks merah gelap */
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+    display: none; /* Default hidden */
+}
+
+.success-message {
+    background-color: #86EFAC; /* Warna hijau */
+    color: #166534; /* Warna teks hijau gelap */
+    padding: 10px 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: center;
+    font-weight: 500;
+    display: none; /* Default hidden */
+}
+
+.success-message.fade-in {
+    display: block; /* Menampilkan saat animasi */
+    animation: fadeIn 0.5s ease-out; /* Animasi masuk */
+}
+
+/* Input Group dan Floating Labels */
+.input-group {
+    position: relative;
+    margin-bottom: 25px; /* Tambahkan ruang untuk pesan error */
+}
+
+/* Override gaya input sebelumnya agar sesuai dengan floating label */
+.input-group input {
+    width: 100%;
+    padding: 18px 20px 8px 20px; /* Atur padding agar label di atas punya ruang */
+    background-color: #7C3AED; /* Background input senada dengan form */
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    font-size: 15px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.input-group input:focus {
+    outline: none;
+    border-color: #FF5C00; /* Warna aksen saat fokus */
+    box-shadow: 0 0 0 3px rgba(255, 92, 0, 0.2);
+}
+
+.input-group label {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease-out;
+    pointer-events: none;
+    color: rgba(255, 255, 255, 0.7); /* Warna default label */
+    font-size: 14px;
+    z-index: 1; /* Pastikan label di atas input */
+    padding: 0 5px; /* Untuk background saat floating */
+    background-color: transparent; /* Default transparan */
+}
+
+/* Ketika input tidak kosong ATAU sedang fokus */
+.input-group input:not(:placeholder-shown) + label,
+.input-group input:focus + label {
+    top: 5px; /* Pindahkan label ke atas */
+    font-size: 11px; /* Ukuran font lebih kecil */
+    color: rgba(255, 255, 255, 0.9); /* Warna saat aktif/terisi */
+    transform: translateY(0);
+    background-color: #6D28D9; /* Warna background form untuk menutupi input di bawah label */
+    left: 15px; /* Sesuaikan posisi horizontal */
+    z-index: 2; /* Pastikan label tetap di atas saat floating */
+}
+
+/* Untuk label pada input password yang memiliki wrapper */
+.input-group .password-input:focus-within + label,
+.input-group .password-input input:not(:placeholder-shown) + label {
+    top: 5px;
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.9);
+    transform: translateY(0);
+    background-color: #6D28D9;
+    left: 15px;
+    z-index: 2;
+}
+
+
+/* Status Validasi Real-time */
+.input-group.error input {
+    border-color: #F87171;
+    box-shadow: 0 0 0 3px rgba(248, 113, 113, 0.2);
+}
+.input-group.success input {
+    border-color: #4ADE80;
+    box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.2);
+}
+
+/* Pesan error di bawah input */
+.input-error-message {
+    color: #FCA5A5; /* Merah */
+    font-size: 12px;
+    position: absolute;
+    bottom: -20px; /* Posisi di bawah input */
+    left: 0;
+    padding-left: 5px;
+    width: 100%;
+}
 }
