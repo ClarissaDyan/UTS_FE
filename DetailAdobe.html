@@ -11,25 +11,61 @@
     <title>SkillUp! - Adobe After Effect</title>
 </head>
 <body>
-    <header class="header-v2">
-        <div class="header-top">
-            <span class="user-greeting">Halo, User</span>
-            <div class="logo">
-                <img src="Logo.png" alt="SkillUp! Logo">
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                
+                
+                <nav class="nav-buttons" id="desktopNav">
+                    <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                    <a href="#courses" class="nav-btn">Kursus</a>
+                    <a href="#contact" class="nav-btn">Hubungi Kami</a>
+                </nav>
+                <a href="#hero" class="logo-link">
+                    <img src="/static/Logo.png" class="logo-image">
+                </a>
+                
             </div>
-            <div class="header-actions">
-                <a href="#" class="btn-payment">Riwayat Pembayaran</a>
-                <a href="#" class="btn-icon"><span>➔</span></a>
+            
+            <div class="header-right">
+                <!-- Show when NOT logged in -->
+                <div class="auth-buttons" id="authButtons">
+                    <a href="loginSignUp.html" class="login-btn">Masuk</a>
+                    <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
+                </div>
+                
+    <!-- Show when logged in (hidden by default) -->
+    <div class="user-menu hidden" id="userMenu">
+        <span class="user-greeting" id="userGreeting">Halo, User!</span>
+        <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+        <a href="profile.html" class="profile-btn">
+            <i class="fas fa-user"></i>
+        </a>
+        <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+    </div>
+                
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
-
-        <nav class="main-nav">
-            <ul>
-                <li><a href="#">Halaman Utama</a></li>
-                <li><a href="/produkList.html" class="active">Kursus</a></li>
-                <li><a href="#">Hubungi Kami</a></li>
-            </ul>
-        </nav>
+        
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                <a href="#courses" class="nav-btn">Kursus</a>
+                <a href="#contact" class="nav-btn">Hubungi Kami</a>
+            </nav>
+            
+            <div class="mobile-auth" id="mobileAuth">
+                <!-- Will be populated based on login status by home.js -->
+                <a href="loginSignUp.html" class="login-btn" style="width: 100%; text-align: center; display: block;">Masuk</a>
+                <a href="loginSignUp.html#signup" class="signup-btn" style="width: 100%; text-align: center; display: block;">Daftar</a>
+            </div>
+        </div>
     </header>
 
     <div class="container">
