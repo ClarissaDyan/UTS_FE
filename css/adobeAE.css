@@ -37,82 +37,362 @@ body {
 
 
 /* ===== HEADER ===== */
-.header-v2 {
-    width: 100%;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border-radius: 0; 
+.header {
+    background: linear-gradient(90deg, #4FD1C5 0%, #63B3ED 25%, #667EEA 50%, #9F7AEA 75%, #B794F4 100%);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 15px 40px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-.header-top {
+.header-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 40px 40px;
-    background: linear-gradient(to right, #75F9D1, #B49DEB);
-    position: relative; 
 }
 
-.header-top .user-greeting {
-    font-size: 1.1em;
-    font-weight: 600;
-    color: #0B3C3D;
-}
-
-.header-top .logo img {
-    height: 82px;
-    width: auto; 
-}
-
-/* Logo di tengah */
-.header-top .logo {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.header-top .logo h1 {
-    font-size: 3.5em; 
-    font-weight: 800;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-}
-
-.header-actions {
+/* Penyesuaian untuk layout 3 kolom */
+.header-left, .header-right {
+    flex: 1; /* Memberi ruang yang sama untuk sisi kiri dan kanan */
     display: flex;
     align-items: center;
+}
+
+.header-left {
+    justify-content: flex-start; /* Meratakan item ke kiri */
+}
+
+.header-center {
+    flex: 0 1 auto; /* Mencegah logo menyusut atau tumbuh */
+}
+
+.header-right {
+    justify-content: flex-end; /* Meratakan item ke kanan */
+}
+
+
+.logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo-image {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.nav-btn {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.nav-btn.active {
+    background: #FF6B35;
+}
+
+.auth-buttons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.login-btn, .signup-btn {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.signup-btn {
+    background: #FF6B35;
+    border-color: #FF6B35;
+}
+
+.login-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.signup-btn:hover {
+    background: #e55a2e;
+    border-color: #e55a2e;
+}
+
+/* User Menu Styles */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-greeting {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    margin-right: 4px;
+}
+
+.payment-history {
+    background: #FF6B35;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-history:hover {
+    background: #e55a2e;
+    transform: translateY(-1px);
+}
+
+.profile-btn {
+    width: 36px;
+    height: 36px;
+    background: #FF6B35;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.profile-btn:hover {
+    transform: scale(1.05);
+    background: #e55a2e;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+
+/* User Menu Styles */
+.user-menu {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.user-greeting {
+    color: white;
+    font-weight: 600;
+    font-size: 14px;
+    white-space: nowrap;
+    margin-right: 4px;
+}
+
+.payment-history {
+    background: #FF6B35;
+    padding: 8px 18px;
+    border-radius: 20px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.payment-history:hover {
+    background: #e55a2e;
+    transform: translateY(-1px);
+}
+
+.profile-btn {
+    width: 36px;
+    height: 36px;
+    background: #FF6B35;
+    border-radius: 50%;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.profile-btn:hover {
+    transform: scale(1.05);
+    background: #e55a2e;
+}
+
+.logout-btn {
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.hamburger span {
+    width: 25px;
+    height: 3px;
+    background: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+}
+
+/* Mobile Menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, #4FD1C5 0%, #63B3ED 25%, #667EEA 50%, #9F7AEA 75%, #B794F4 100%);
+    padding: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    z-index: 99;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.mobile-nav .nav-btn {
+    width: 100%;
+    text-align: left;
+    padding: 12px 20px;
+}
+
+.mobile-auth {
+    display: flex;
+    flex-direction: column;
     gap: 10px;
 }
 
-.header-actions .btn-payment {
-    background-color: #F97B22;
-    color: white;
-    padding: 12px 20px;
-    border-radius: 25px;
-    font-weight: 600;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease;
-}
-.header-actions .btn-payment:hover {
-    transform: translateY(-2px);
+.mobile-menu .user-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid rgba(255,255,255,0.2);
 }
 
-.header-actions .btn-icon {
-    background-color: #F97B22;
-    color: white;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    text-decoration: none;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-    transition: transform 0.2s ease;
+.mobile-menu .payment-history,
+.mobile-menu .logout-btn {
+    width: 100%;
+    padding: 12px 20px;
+    text-align: center;
 }
-.header-actions .btn-icon:hover {
-    transform: translateY(-2px);
+
+.mobile-menu .profile-btn {
+    width: 100%;
+    border-radius: 12px;
+    height: auto;
+    padding: 12px 20px;
 }
 
 .container {
@@ -200,6 +480,10 @@ ul {
     background-color: var(--white);
     color: var(--primary-orange);
     border: 2px solid var(--primary-orange);
+}
+
+.hidden {
+    display: none !important;
 }
 
 
@@ -337,7 +621,7 @@ main {
 
 .sticky-nav {
     position: sticky;
-    top: 15px; 
+    top: 100px; 
     z-index: 1000; 
 
     background-color: #63DFDF; 
@@ -473,7 +757,7 @@ main {
 .purchase-sidebar {
     flex: 0.7; 
     position: sticky;
-    top: 15px;
+    top: 100px;
 }
 
 .purchase-box {
@@ -710,60 +994,87 @@ main {
 
 
 /* ===== FOOTER ===== */
-footer {
-    background-color: var(--dark-blue);
-    color: #ccc;
-    padding: 50px 0 0 0;
-    margin-top: 50px;
+/* Footer */
+.footer {
+    background: #1F2937;
+    color: white;
+    padding: 40px 0 20px;
+    margin-top: 40px;
 }
 
 .footer-content {
-    display: flex;
-    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
     gap: 40px;
-    padding: 0 40px 40px 40px;
+    margin-bottom: 32px;
 }
 
-.footer-section {
-    flex: 1;
+.footer-logo {
+    height: 40px; /* Mengatur tinggi logo menjadi 40px */
+    margin-bottom: 15px; /* Memberi jarak antara logo dan teks di bawahnya */
 }
 
 .footer-section h4 {
-    color: var(--white);
-    margin-bottom: 15px;
-    font-size: 1.1em;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: white;
 }
 
-.footer-section p, .footer-section ul li a {
-    color: #aaa;
-    line-height: 1.8;
+.footer-section h5 {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #E5E7EB;
 }
 
-.footer-section ul li a {
-    display: flex;
-    align-items: center;
-    transition: color 0.3s ease; 
+.footer-section p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #D1D5DB;
+    font-weight: 400;
 }
 
-.footer-section ul li a i {
-    font-size: 1.2em; 
-    width: 30px; 
-    margin-right: 8px; 
+.footer-section ul {
+    list-style: none;
 }
 
 .footer-section ul li {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
+}
+
+.footer-section ul li a {
+    color: #D1D5DB;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 400;
 }
 
 .footer-section ul li a:hover {
-    color: var(--primary-orange);
+    color: #FF6B35;
+}
+
+.footer-section ul li i {
+    width: 16px;
+    font-size: 14px;
 }
 
 .footer-bottom {
+    border-top: 1px solid #374151;
+    padding-top: 20px;
     text-align: center;
-    padding: 20px 0;
-    border-top: 1px solid #334;
-    font-size: 0.9em;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 40px;
+    padding-right: 40px;
+    color: #9CA3AF;
+    font-size: 14px;
 }
 
 @media (max-width: 768px) {
@@ -776,5 +1087,65 @@ footer {
 
     .footer-section {
         text-align: left;
+    }
+}
+
+@media (max-width: 1024px) {
+    .main-content {
+        padding: 30px 20px 0;
+    }
+    
+    .hero-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+    }
+    
+    .courses-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .contact-section {
+        grid-template-columns: 1fr;
+    }
+    
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 20px;
+    }
+    
+    .nav-buttons {
+        gap: 5px;
+    }
+    
+    .nav-btn {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 850px) {
+    .header {
+        padding: 15px 20px;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    /* Sembunyikan nav-buttons di kiri dan auth di kanan */
+    .header-left .nav-buttons, 
+    .header-right .auth-buttons, 
+    .header-right .user-menu {
+        display: none;
+    }
+
+    /* Pastikan hamburger ada di dalam .header-right agar tetap di kanan */
+    .header-right {
+        justify-content: flex-end;
+    }
+    
+    /* Pusatkan logo di tengah dengan mengosongkan sisi kiri */
+    .header-left {
+        flex: 1;
     }
 }
