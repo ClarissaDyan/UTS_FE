@@ -1,34 +1,40 @@
-/* Import variabel warna dari file lain agar konsisten */
-@import url('produkList.css');
+:root {
+    --primary-orange: #FE5E00; 
+    --light-blue: #D6E4F0;
+    --dark-blue: #1A2836;
+    --text-color: #333;
+    --bg-color: #F0F4F8;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --primary-purple: #6025E1; 
+    --input-bg: #f7f7f9;
+}
 
-/* Mengatur body agar gradientnya tetap sama */
 body {
     background: linear-gradient(to top, #75F9D1, #B49DEB);
 }
 
-/* Kontainer utama untuk menengahkan kartu pembayaran */
 .checkout-container {
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 50px 20px;
-    min-height: calc(100vh - 300px); /* Kalkulasi tinggi agar kartu di tengah antara header dan footer */
+    min-height: calc(100vh - 300px);
 }
 
-/* Kartu Pembayaran utama */
 .checkout-card {
     background-color: var(--white);
     border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow);
     padding: 30px;
     display: grid;
-    grid-template-columns: 1.5fr 1fr; /* Kolom form lebih besar dari ringkasan */
+    grid-template-columns: 1.5fr 1fr;
     gap: 30px;
     max-width: 900px;
     width: 100%;
 }
 
-/* Kolom Kiri: Form */
 .form-section {
     display: flex;
     flex-direction: column;
@@ -53,13 +59,13 @@ body {
     border-radius: 8px;
     font-size: 1em;
     font-family: 'Poppins', sans-serif;
-    background-color: #f7f7f9;
+    background-color: var(--input-bg);
 }
 
 .form-group input:focus,
 .form-group select:focus {
     outline: none;
-    border-color: #6025E1; /* Warna ungu dari nav */
+    border-color: var(--primary-purple);
     box-shadow: 0 0 0 3px rgba(96, 37, 225, 0.1);
 }
 
@@ -69,9 +75,8 @@ body {
     margin: 10px 0 20px 0;
 }
 
-/* Kolom Kanan: Ringkasan */
 .summary-section {
-    background-color: #6025E1; /* Warna ungu dari nav */
+    background-color: var(--primary-purple);
     color: var(--white);
     padding: 25px;
     border-radius: 15px;
@@ -101,7 +106,7 @@ body {
 .summary-section .course-instructor {
     font-size: 0.9em;
     opacity: 0.8;
-    margin-bottom: auto; /* Mendorong harga ke bawah */
+    margin-bottom: auto;
 }
 
 .summary-section .course-price {
@@ -110,9 +115,8 @@ body {
     text-align: right;
 }
 
-/* Tombol Bayar */
 .btn-bayar {
-    grid-column: 1 / -1; /* Membuat tombol membentang di kedua kolom */
+    grid-column: 1 / -1;
     background-color: var(--primary-orange);
     color: var(--white);
     border: none;
@@ -126,19 +130,17 @@ body {
 }
 
 .btn-bayar:hover {
-    background-color: #e65600; /* Warna oranye lebih gelap */
+    background-color: #e65600;
     transform: translateY(-2px);
 }
 
-/* Desain Responsif */
 @media (max-width: 768px) {
     .checkout-card {
-        grid-template-columns: 1fr; /* Tumpuk kolom menjadi satu */
+        grid-template-columns: 1fr;
         padding: 20px;
     }
     
     .summary-section {
-        /* Balik urutan agar ringkasan muncul di atas form pada mobile */
         order: -1; 
     }
 
