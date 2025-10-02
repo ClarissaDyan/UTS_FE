@@ -15,9 +15,9 @@
         <div class="header-container">
             <div class="header-left">
                 <nav class="nav-buttons" id="desktopNav">
-                    <a href="home.html#hero" class="nav-btn">Halaman Utama</a>
-                    <a href="home.html#courses" class="nav-btn">Kursus</a>
-                    <a href="home.html#contact" class="nav-btn">Hubungi Kami</a>
+                    <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                    <a href="#courses" class="nav-btn">Kursus</a>
+                    <a href="#contact" class="nav-btn">Hubungi Kami</a>
                 </nav>
             </div>
             
@@ -175,35 +175,35 @@
                                 </a>
                             </li>
 
-                            <li class="hidden">
+                            <li class="video-hidden">
                                 <a href="https://www.youtube.com/watch?v=87xmhun_2GM" target="_blank">
                                     <i class="fa-solid fa-play-circle"></i>
                                     <span class="video-title">Green Screen Mudah - Tutorial After Effects</span>
                                     <span class="video-duration">03:04</span>
                                 </a>
                             </li>
-                            <li class="hidden">
+                            <li class="video-hidden">
                                 <a href="https://www.youtube.com/watch?v=C8n0sBkpjVc" target="_blank">
                                     <i class="fa-solid fa-play-circle"></i>
                                     <span class="video-title">Manipulasi Waktu, Slow Motion, Stop Time & Reverse</span>
                                     <span class="video-duration">03:52</span>
                                 </a>
                             </li>
-                            <li class="hidden">
+                            <li class="video-hidden">
                                 <a href="https://www.youtube.com/watch?v=tP2GYEvBJlo" target="_blank">
                                     <i class="fa-solid fa-play-circle"></i>
                                     <span class="video-title">Motion Tracking - Tutorial After Effects</span>
                                     <span class="video-duration">07:02</span>
                                 </a>
                             </li>
-                            <li class="hidden">
+                            <li class="video-hidden">
                                 <a href="https://www.youtube.com/watch?v=PdgiQPtq-G4" target="_blank">
                                     <i class="fa-solid fa-play-circle"></i>
                                     <span class="video-title">Camera Tracking - Tutorial After Effects</span>
                                     <span class="video-duration">06:04</span>
                                 </a>
                             </li>
-                            <li class="hidden">
+                            <li class="video-hidden">
                                 <a href="https://www.youtube.com/watch?v=j19XQ8bAhPI" target="_blank">
                                     <i class="fa-solid fa-play-circle"></i>
                                     <span class="video-title">Parallax Effect, 2.5D dan Animasi Puppet</span>
@@ -307,7 +307,7 @@
 
     <script>
         const showMoreButton = document.querySelector('.show-more-btn');
-        const hiddenVideos = document.querySelectorAll('.video-list li.hidden');
+        const hiddenVideos = document.querySelectorAll('.video-list li.video-hidden');
 
         showMoreButton.addEventListener('click', () => {
             // Cek apakah daftar video sedang terbuka (expanded)
