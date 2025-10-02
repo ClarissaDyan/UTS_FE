@@ -276,26 +276,7 @@ function togglePassword(inputId) {
     }
 }
 
-function goToHome() {
-    window.location.href = 'home.html';
-}
 
-function addFloatingLabels() {
-    const inputs = document.querySelectorAll('.input-group input');
-    
-    inputs.forEach(input => {
-        const label = input.previousElementSibling;
-        if (label && label.tagName === 'LABEL') {
-            const inputGroup = input.parentElement;
-            inputGroup.classList.add('floating');
-            input.parentElement.appendChild(label);
-            
-            if (!input.placeholder) {
-                input.placeholder = ' ';
-            }
-        }
-    });
-}
 
 document.addEventListener('DOMContentLoaded', function() {
     const inputs = document.querySelectorAll('input[required]');
