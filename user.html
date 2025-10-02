@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Online Learning Platform</title>
+    <link rel="stylesheet" href="css/user.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="logo">Logo</div>
+
+    <div class="back-home">
+        <button onclick="goToHome()" class="btn-back-home">
+            <i class="fas fa-arrow-left"></i>
+            Kembali ke Beranda
+        </button>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-content">
+            <!-- Left Section -->
+            <div class="profile-left">
+                <!-- Avatar Section -->
+                <div class="avatar-section">
+                    <div class="avatar">
+                        <div class="avatar-icon"></div>
+                        <div class="avatar-body"></div>
+                    </div>
+                </div>
+
+                <!-- Feedback Section -->
+                <div class="feedback-section">
+                    <h3 class="feedback-title">Feedback</h3>
+                    <form id="feedbackForm">
+                        <textarea class="feedback-textarea" id="feedbackText" placeholder="Tulis feedback Anda di sini..."></textarea>
+                        <button type="submit" class="btn-feedback">Kirim Feedback</button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right Section -->
+            <div class="profile-right">
+                <form id="profileForm">
+                    <div class="form-group">
+                        <label class="form-label">Nama Lengkap</label>
+                        <input type="text" class="form-input" id="fullname" placeholder="Masukkan nama lengkap">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-input" id="email" placeholder="Masukkan email">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">No Telepon</label>
+                        <input type="tel" class="form-input" id="phone" placeholder="Masukkan nomor telepon">
+                    </div>
+
+                    <div class="button-group">
+                        <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
+                        <button type="button" class="btn btn-secondary" onclick="deleteAccount()">Hapus Akun</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/user.js"></script>
+</body>
+</html>
