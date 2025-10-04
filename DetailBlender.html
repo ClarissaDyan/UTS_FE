@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/adobeAE.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>SkillUp! - Blender 3D Modeling</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <nav class="nav-buttons" id="desktopNav">
+                    <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                    <a href="#courses" class="nav-btn">Kursus</a>
+                    <a href="#contact" class="nav-btn">Hubungi Kami</a>
+                </nav>
+            </div>
+            
+            <div class="header-center">
+                <a href="#hero" class="logo-link">
+                    <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
+                </a>
+            </div>
+            
+            <div class="header-right">
+                <div class="auth-buttons" id="authButtons">
+                    <a href="loginSignUp.html" class="login-btn">Masuk</a>
+                    <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
+                </div>
+                
+                <div class="user-menu hidden" id="userMenu">
+                    <span class="user-greeting" id="userGreeting">Halo, User!</span>
+                    <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+                </div>
+                
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                <a href="#courses" class="nav-btn">Kursus</a>
+                <a href="#contact" class="nav-btn">Hubungi Kami</a>
+            </nav>
+            
+            <div class="mobile-auth" id="mobileAuth">
+                <a href="loginSignUp.html" class="login-btn" style="width: 100%; text-align: center; display: block;">Masuk</a>
+                <a href="loginSignUp.html#signup" class="signup-btn" style="width: 100%; text-align: center; display: block;">Daftar</a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <main>
+            <section class="course-detail-header">
+                <div class="breadcrumbs">
+                    <a href="#">← Home</a>
+                    <span>&gt;</span>
+                    <a href="produkList.html">Kursus</a>
+                    <span>&gt;</span>
+                    <p>Blender 3D Modeling [2021]</p>
+                </div>
+                
+                <div class="detail-content-wrapper">
+                    <div class="course-text-info">
+                        <h2>Blender 3D Modeling [2021]</h2>
+                        <p class="course-description">
+                            Blender 3D adalah salah satu platform kreasi 3D paling komprehensif yang tersedia di pasar kreatif saat ini. Sebagai software open-source yang didukung oleh komunitas global yang masif, Blender menawarkan rangkaian fitur canggih yang mencakup keseluruhan alur kerja 3D, mulai dari pemodelan, pematungan digital (sculpting), animasi, hingga rendering fotorealistis dengan engine Cycles dan real-time dengan Eevee. Dengan serangkaian pembaruan terkini yang terus diintegrasikan, hadir pula berbagai optimisasi yang bertujuan untuk menciptakan alur kerja yang lebih efisien dan intuitif. Membuat aset 3D yang kompleks, animasi yang memukau, atau efek visual untuk berbagai format tujuan kini semakin mudah diakses oleh para profesional maupun penghobi.
+                        </p>
+                    </div>
+                    <div class="course-media-placeholder">
+                            <img src="/static/Blender.jpg" alt="Blender 3D Modeling">
+                    </div>
+                </div>
+
+                <div class="course-meta-info">
+                    <span>Instruktur: Darius</span>
+                    <span>Waktu Total: 58 menit</span>
+                    <span>Rilis: 12 Oktober 2021</span>
+                </div>
+            </section>
+        </main>
+
+        <nav class="sticky-nav">
+            <ul>
+                <li><a href="#manfaat" class="active">Manfaat</a></li>
+                <li><a href="#kursus">Kursus</a></li>
+                <li><a href="#syarat">Syarat</a></li>
+            </ul>
+        </nav>
+
+        <div class="course-content-wrapper">
+            <div class="main-content-col">
+                <div class="learning-objectives" id="manfaat">
+                    <h2>Yang akan Anda pelajari:</h2>
+                    <ul>
+                        <li>Menguasai dasar-dasar navigasi dan antarmuka (interface) di dalam Blender untuk alur kerja yang efisien.</li>
+                        <li>Mempelajari teknik-teknik fundamental 3D modeling, mulai dari manipulasi objek dasar hingga penggunaan tool esensial seperti Extrude, Loop Cut, dan Bevel.</li>
+                        <li>Memahami cara memberikan material, tekstur, dan warna pada objek 3D (Shading & UV Unwrapping) untuk menciptakan model yang realistis.</li>
+                        <li>Menerapkan berbagai macam modifier non-destruktif untuk mempercepat proses modeling dan membuat bentuk yang kompleks.</li>
+                        <li>Mendapatkan pengenalan dasar tentang rigging untuk mempersiapkan karakter 3D Anda agar dapat digerakkan dan diposekan.</li>
+                        <li>Membangun fondasi yang kuat untuk membuat berbagai macam aset 3D, baik untuk game, animasi, maupun visualisasi arsitektur.</li>
+                    </ul>
+                </div>
+
+                <div class="skills-acquired">
+                    <h2>Keahlian yang akan Anda dapatkan:</h2>
+                    <div class="skills-tags">
+                        <span class="skill-tag">3D Modeling</span>
+                        <span class="skill-tag">Digital Sculpting</span>
+                        <span class="skill-tag">UV Unwrapping</span>
+                        <span class="skill-tag">Texturing & Shading</span>
+                        <span class="skill-tag">Lighting</span>
+                        <span class="skill-tag">Rendering (Cycles & Eevee)</span>
+                        <span class="skill-tag">3D Animation</span>
+                        <span class="skill-tag">Rigging Karakter</span>
+                        <span class="skill-tag">Simulasi Fisika</span>
+                        <span class="skill-tag">Particle Systems</span>
+                        <span class="skill-tag">Compositing</span>
+                        <span class="skill-tag">Arsitektur Visualisasi</span>
+                    </div>
+                </div>
+
+                <div class="course-content-section" id="kursus">
+                    <div class="course-content-header">
+                        <div class="header-text">
+                            <h2>Konten Kursus:</h2>
+                            <p>9 Video - Total 58 menit</p>
+                        </div>
+                        <a href="#" class="promo-btn">Dua Video Pertama Gratis!</a>
+                    </div>
+
+                    <div class="video-list-container">
+                        <ul class="video-list">
+                            <li>
+                                <a href="https://youtu.be/_l7fshHOsPA?si=Tqy4otutfVb_Q4en" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">User Interface - Blender 3D Modeling</span>
+                                    <span class="video-label">Gratis</span>
+                                    <span class="video-duration">05:50</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/7sJ_jO6NHxA?si=7dTy9ZlrhK_cOOxY" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">MMove, Rotate, Scale Object - Blender 3D Modelling</span>
+                                    <span class="video-label">Gratis</span>
+                                    <span class="video-duration">04:37</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/WBQEZwJAWrc?si=xQWkQbuU296-AWR9" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Edit Mode - Blender 3D Modeling</span>
+                                    <span class="video-duration">05:03</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/hsLD4XkMNO4?si=taCgOeDE5Hcn92N3" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Extrude - Blender 3D Modeling</span>
+                                    <span class="video-duration">05:10</span>
+                                </a>
+                            </li>
+
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/0G0Idtn8XlM?si=FQj_QCBzugS5WEyH" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Loop Cut & Delete - Blender 3D Modeling</span>
+                                    <span class="video-duration">05:23</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/pbq0ExxuhCw?si=qowRM0dQcEwQwPA8" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Knife, Bisect & Bevel Tool - Blender 3D Modeling</span>
+                                    <span class="video-duration">03:20</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/R9C7chSsHEY?si=9jYtT_jWyQ9OhP0V" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Shading, Texturing & UV Unwrap - Blender 3D Modeling</span>
+                                    <span class="video-duration">10:48</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/gnngKZj13Yk?si=0TQLPak7IOvlLqjN" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Modifier: Mirror, Boolean, Simple Deform, Subdivision - Blender 3D Modeling</span>
+                                    <span class="video-duration">07:11</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/XWveG_boJdo?si=l1hh5t3X0Z7tApKT" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Basic Rigging & Posing dengan - Blender 3D Modeling</span>
+                                    <span class="video-duration">10:11</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <button class="show-more-btn">
+                            Lebih banyak <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="requirements-section" id="syarat">
+                    <h2>Syarat:</h2>
+                    <ul>
+                        <li>Tidak perlu pengalaman 3D sebelumnya. Kursus ini dirancang untuk pemula sejati. Semua konsep dan teknik akan dijelaskan dari dasar.</li>
+                        <li>Komputer atau Laptop (64-bit) dengan koneksi internet. Disarankan menggunakan mouse dengan 3 tombol (termasuk roda gulir yang bisa ditekan) untuk navigasi yang optimal.</li>
+                        <li>Software Blender sudah terinstal. Blender sepenuhnya gratis untuk diunduh dan digunakan selamanya dari situs web resmi blender.org.</li>
+                        <li>Rasa ingin tahu dan kesabaran untuk belajar. Dunia 3D sangat luas, jadi nikmati setiap prosesnya dan jangan takut untuk bereksperimen!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="purchase-sidebar">
+                <div class="purchase-box">
+                    <h2>Beli Kursus</h2>
+                    <p class="price">Rp 120.000</p>
+                    <p class="student-count">
+                        <i class="fa-solid fa-fire"></i>
+                        <span>458 Pelajar sudah mendaftar</span>
+                    </p>
+                    <div class="action-buttons">
+                        <a href="pembayaran.html" class="btn btn-purchase primary">Beli Langsung</a>
+                    </div>
+                    <div class="includes-section">
+                        <p>Sudah termasuk:</p>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-play"></i> 9 Video Pembelajaran</li>
+                            <li><i class="fa-solid fa-infinity"></i> Akses Selamanya</li>
+                            <li><i class="fa-solid fa-file-arrow-down"></i> File Aset</li>
+                            <li><i class="fa-solid fa-trophy"></i> Sertifikat Penyelesaian</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="share-link">
+                        <i class="fa-solid fa-share-nodes"></i>
+                        Bagikan Kursus Ini
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="/static/Logo.png" alt="logo.png" class="footer-logo">
+                <p>Jadi kami adalah sebuah organisasi yang learning yang bergerak di bidang pendidikan, yapping yapping yapping yapping yapping yapping yap</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Kursus</h4>
+                <ul>
+                    <li><a href="#">Web dev</a></li>
+                    <li><a href="#">Game dev</a></li>
+                    <li><a href="#">Compilation</a></li>
+                    <li><a href="#">Database</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Media Sosial</h4>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-github"></i> Github</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fas fa-link"></i> 0812345678</li>
+                    <li><i class="fas fa-envelope"></i> SkillUp@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jln ini aja dulu</li>
+                    <li><i class="fas fa-clock"></i> Senin-Jumat 08:00 - 17:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© SkillUp. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="js/home.js" type="module"></script>
+
+    <script>
+        const showMoreButton = document.querySelector('.show-more-btn');
+        const hiddenVideos = document.querySelectorAll('.video-list li.video-hidden');
+
+        showMoreButton.addEventListener('click', () => {
+            // Cek apakah daftar video sedang terbuka (expanded)
+            const isExpanded = showMoreButton.classList.contains('expanded');
+
+            if (isExpanded) {
+                // JIKA SUDAH TERBUKA, maka SEMBUNYIKAN KEMBALI
+                hiddenVideos.forEach(video => {
+                    video.style.display = 'none'; // Sembunyikan video
+                });
+                
+                // Ubah kembali teks dan ikon tombol
+                showMoreButton.innerHTML = 'Lebih banyak <i class="fa-solid fa-chevron-down"></i>';
+                showMoreButton.classList.remove('expanded');
+
+            } else {
+                // JIKA MASIH TERTUTUP, maka TAMPILKAN
+                hiddenVideos.forEach(video => {
+                    video.style.display = 'block'; // Tampilkan video
+                });
+
+                // Ubah teks dan ikon tombol
+                showMoreButton.innerHTML = 'Lebih sedikit <i class="fa-solid fa-chevron-up"></i>';
+                showMoreButton.classList.add('expanded');
+            }
+        });
+    </script>
+    
+</body>
+</html>
