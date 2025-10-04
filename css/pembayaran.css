@@ -1,0 +1,150 @@
+:root {
+    --primary-orange: #FE5E00; 
+    --light-blue: #D6E4F0;
+    --dark-blue: #1A2836;
+    --text-color: #333;
+    --bg-color: #F0F4F8;
+    --white: #FFFFFF;
+    --border-color: #E0E0E0;
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    --primary-purple: #6025E1; 
+    --input-bg: #f7f7f9;
+}
+
+body {
+    background: linear-gradient(to top, #75F9D1, #B49DEB);
+}
+
+.checkout-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 20px;
+    min-height: calc(100vh - 300px);
+}
+
+.checkout-card {
+    background-color: var(--white);
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    max-width: 900px;
+    width: 100%;
+}
+
+.form-section {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 1em;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--input-bg);
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-purple);
+    box-shadow: 0 0 0 3px rgba(96, 37, 225, 0.1);
+}
+
+.form-divider {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 10px 0 20px 0;
+}
+
+.summary-section {
+    background-color: var(--primary-purple);
+    color: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.summary-section .course-image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.summary-section h3 {
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.summary-section .course-description {
+    font-size: 0.9em;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.summary-section .course-instructor {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-bottom: auto;
+}
+
+.summary-section .course-price {
+    font-size: 1.2em;
+    margin-top: 20px;
+    text-align: right;
+}
+
+.btn-bayar {
+    grid-column: 1 / -1;
+    background-color: var(--primary-orange);
+    color: var(--white);
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.btn-bayar:hover {
+    background-color: #e65600;
+    transform: translateY(-2px);
+}
+
+@media (max-width: 768px) {
+    .checkout-card {
+        grid-template-columns: 1fr;
+        padding: 20px;
+    }
+    
+    .summary-section {
+        order: -1; 
+    }
+
+    .btn-bayar {
+        margin-top: 20px;
+    }
+}

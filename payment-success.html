@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillUp! - Payment Success</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="css/payment-success.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="#hero" class="logo-link">
+                    <img src="static/Logo.png" class="logo-image" alt="SkillUp! Logo">
+                </a>
+                <nav class="nav-buttons" id="desktopNav">
+                    <a href="home.html" class="nav-btn active">Halaman Utama</a>
+                    <a href="produkList.html" class="nav-btn">Kursus</a>
+                    <a href="home.html#contact" class="nav-btn">Hubungi Kami</a>
+                </nav>
+            </div>
+            <div class="header-right">
+                <div class="auth-buttons" id="authButtons">
+                    <a href="loginSignUp.html" class="login-btn">Masuk</a>
+                    <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
+                </div>
+                <div class="user-menu hidden" id="userMenu">
+                    <span class="user-greeting" id="userGreeting">Halo, User!</span>
+                    <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+                </div>
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="success-container">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check"></i>
+            </div>
+            <h1 class="success-title">Payment Success</h1>
+        </div>
+        <a href="home.html" class="btn-home">Home</a>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Logo</h4>
+                <h5>Nama Online Coursenya</h5>
+                <p>Jadi kami adalah sebuah organisasi yang learning yang bergerak di bidang pendidikan, yapping yapping yapping yapping yapping yapping yap</p>
+            </div>
+            <div class="footer-section">
+                <h4>Kursus</h4>
+                <ul>
+                    <li><a href="#">Web dev</a></li>
+                    <li><a href="#">Game dev</a></li>
+                    <li><a href="#">Compilation</a></li>
+                    <li><a href="#">Database</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Media Sosial</h4>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-github"></i> Github</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fas fa-link"></i> 0812345678</li>
+                    <li><i class="fas fa-envelope"></i> SkillUp@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jln ini aja dulu</li>
+                    <li><i class="fas fa-clock"></i> Senin-Jumat 08:00 - 17:00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© SkillUp. All rights reserved</p>
+        </div>
+    </footer>
+    
+    <script src="js/home.js" type="module"></script>
+</body>
+</html>
