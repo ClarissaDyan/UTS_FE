@@ -17,33 +17,53 @@
     <header class="header">
         <div class="header-container">
             <div class="header-left">
-                <a href="home.html" class="logo-link">
-                    <img src="static/Logo.png" class="logo-image" alt="SkillUp! Logo">
-                </a>
                 <nav class="nav-buttons" id="desktopNav">
-                    <a href="home.html" class="nav-btn active">Halaman Utama</a>
-                    <a href="produkList.html" class="nav-btn">Kursus</a>
-                    <a href="home.html#contact" class="nav-btn">Hubungi Kami</a>
+                    <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                    <a href="#courses" class="nav-btn">Kursus</a>
+                    <a href="#contact" class="nav-btn">Hubungi Kami</a>
                 </nav>
             </div>
+            
+            <div class="header-center">
+                <a href="#hero" class="logo-link">
+                    <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
+                </a>
+            </div>
+            
             <div class="header-right">
                 <div class="auth-buttons" id="authButtons">
                     <a href="loginSignUp.html" class="login-btn">Masuk</a>
                     <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
                 </div>
-                <div class="user-menu hidden" id="userMenu">
-                    <span class="user-greeting" id="userGreeting">Halo, User!</span>
-                    <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
-                    <a href="profile.html" class="profile-btn">
-                        <i class="fas fa-user"></i>
-                    </a>
-                    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
-                </div>
+                
+
+    <div class="user-menu hidden" id="userMenu">
+        <span class="user-greeting" id="userGreeting">Halo, User!</span>
+        <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+                    <a href="user.html" class="profile-btn">
+            <i class="fas fa-user"></i>
+        </a>
+        <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+    </div>
+
                 <button class="hamburger" id="hamburger">
                     <span></span>
                     <span></span>
                     <span></span>
                 </button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                <a href="#courses" class="nav-btn">Kursus</a>
+                <a href="#contact" class="nav-btn">Hubungi Kami</a>
+            </nav>
+            
+            <div class="mobile-auth" id="mobileAuth">
+                <a href="loginSignUp.html" class="login-btn" style="width: 100%; text-align: center; display: block;">Masuk</a>
+                <a href="loginSignUp.html#signup" class="signup-btn" style="width: 100%; text-align: center; display: block;">Daftar</a>
             </div>
         </div>
     </header>
