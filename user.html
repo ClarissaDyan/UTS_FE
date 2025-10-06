@@ -34,7 +34,7 @@
                 <div class="user-menu hidden" id="userMenu">
                     <span class="user-greeting" id="userGreeting">Halo, User!</span>
                     <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
-                    <a href="profile.html" class="profile-btn">
+                    <a href="user.html" class="profile-btn">
                         <i class="fas fa-user"></i>
                     </a>
                     <button class="logout-btn" onclick="handleLogout()">Keluar</button>
@@ -63,7 +63,7 @@
     </header>
 
     <div class="back-home">
-        <button onclick="goToHome()" class="btn-back-home">
+        <button id="btnBackHome" class="btn-back-home">
             <i class="fas fa-arrow-left"></i>
             Kembali ke Beranda
         </button>
@@ -111,7 +111,7 @@
 
                     <div class="button-group">
                         <button type="submit" class="btn btn-primary">Simpan Perubahan</button>
-                        <button type="button" class="btn btn-secondary" onclick="deleteAccount()">Hapus Akun</button>
+                        <button type="button" class="btn btn-secondary">Hapus Akun</button>
                     </div>
                 </form>
             </div>

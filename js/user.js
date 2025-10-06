@@ -1,24 +1,37 @@
-// Import fungsi dari localStorageManager
-import { getCurrentUser, setCurrentUser, updateUserProfile, deleteUserAccount, clearCurrentUser } from './js/localStorageManager.js';
+// Import fungsi dari localStorageManager (PERHATIKAN: user.js ada di folder js/, jadi path relatifnya langsung ./localStorageManager.js)
+import { getCurrentUser, setCurrentUser, updateUserProfile, deleteUserAccount, clearCurrentUser } from './localStorageManager.js';
 
 // Navigate to home page
 function goToHome() {
     window.location.href = 'home.html'; 
 }
 
-// Load user data when page loads
-document.addEventListener('DOMContentLoaded', function() {
-    loadUserProfile();
-});
+// Handle account deletion
+function deleteAccount() {
+    const confirmation = confirm('Apakah Anda yakin ingin menghapus akun? Tindakan ini tidak dapat dibatalkan.');
+    
+    if (confirmation) {
+        const doubleConfirm = confirm('Konfirmasi sekali lagi. Hapus akun?');
+        
+        if (doubleConfirm) {
+            const currentUser = getCurrentUser();
+            if (currentUser) {
+                deleteUserAccount(currentUser.id);
+            }
+            clearCurrentUser();
+            alert('Akun berhasil dihapus!');
+            window.location.href = 'home.html';
+        }
+    }
+}
 
 // Load user profile data
 function loadUserProfile() {
-    // Ambil dari localStorage
     const userData = getCurrentUser();
 
     if (!userData) {
         alert("Belum ada user login, silakan login dulu.");
-        window.location.href = "login.html";
+        window.location.href = "loginSignUp.html";
         return;
     }
 
@@ -28,13 +41,13 @@ function loadUserProfile() {
     document.getElementById('phone').value = userData.phone || "";
 }
 
-// Handle form submission
-document.getElementById('profileForm').addEventListener('submit', function(e) {
+// Handle profile form submission
+function handleProfileSubmit(e) {
     e.preventDefault();
 
-    const fullname = document.getElementById('fullname').value;
-    const email = document.getElementById('email').value;
-    const phone = document.getElementById('phone').value;
+    const fullname = document.getElementById('fullname').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
 
     if (!fullname || !email || !phone) {
         alert('Semua field harus diisi!');
@@ -53,7 +66,6 @@ document.getElementById('profileForm').addEventListener('submit', function(e) {
         return;
     }
 
-    // Ambil user yang sedang aktif
     const currentUser = getCurrentUser();
     if (!currentUser) {
         alert("Tidak ada user aktif.");
@@ -74,32 +86,71 @@ document.getElementById('profileForm').addEventListener('submit', function(e) {
 
     console.log('Data yang disimpan:', updatedData);
     alert('Perubahan berhasil disimpan!');
-});
+}
 
-// Handle account deletion
-function deleteAccount() {
-    const confirmation = confirm('Apakah Anda yakin ingin menghapus akun? Tindakan ini tidak dapat dibatalkan.');
+// Handle feedback form submission
+function handleFeedbackSubmit(e) {
+    e.preventDefault();
     
-    if (confirmation) {
-        const doubleConfirm = confirm('Konfirmasi sekali lagi. Hapus akun?');
-        
-        if (doubleConfirm) {
-            const currentUser = getCurrentUser();
-            if (currentUser) {
-                deleteUserAccount(currentUser.id);
-            }
-            clearCurrentUser();
-            alert('Akun berhasil dihapus!');
-            window.location.href = 'index.html';
-        }
+    const feedbackText = document.getElementById('feedbackText').value.trim();
+    
+    if (!feedbackText) {
+        alert('Silakan tulis feedback Anda terlebih dahulu.');
+        return;
     }
+    
+    const currentUser = getCurrentUser();
+    if (!currentUser) {
+        alert('Anda harus login untuk mengirim feedback.');
+        return;
+    }
+    
+    // TODO: Implement feedback submission to server/storage
+    console.log('Feedback dari:', currentUser.fullname);
+    console.log('Feedback:', feedbackText);
+    
+    alert('Terima kasih atas feedback Anda!');
+    document.getElementById('feedbackText').value = '';
 }
 
-// Handle feedback textarea auto-resize
-const feedbackTextarea = document.querySelector('.feedback-textarea');
-if (feedbackTextarea) {
-    feedbackTextarea.addEventListener('input', function() {
-        this.style.height = 'auto';
-        this.style.height = (this.scrollHeight) + 'px';
-    });
+// Handle textarea auto-resize
+function handleTextareaResize() {
+    this.style.height = 'auto';
+    this.style.height = (this.scrollHeight) + 'px';
 }
+
+// Initialize everything when DOM is ready
+document.addEventListener('DOMContentLoaded', function() {
+    // Load user profile data
+    loadUserProfile();
+    
+    // Back to home button
+    const btnBackHome = document.getElementById('btnBackHome');
+    if (btnBackHome) {
+        btnBackHome.addEventListener('click', goToHome);
+    }
+    
+    // Profile form submission
+    const profileForm = document.getElementById('profileForm');
+    if (profileForm) {
+        profileForm.addEventListener('submit', handleProfileSubmit);
+    }
+    
+    // Delete account button
+    const btnDeleteAccount = document.querySelector('.btn-secondary');
+    if (btnDeleteAccount) {
+        btnDeleteAccount.addEventListener('click', deleteAccount);
+    }
+    
+    // Feedback form submission
+    const feedbackForm = document.getElementById('feedbackForm');
+    if (feedbackForm) {
+        feedbackForm.addEventListener('submit', handleFeedbackSubmit);
+    }
+    
+    // Feedback textarea auto-resize
+    const feedbackTextarea = document.getElementById('feedbackText');
+    if (feedbackTextarea) {
+        feedbackTextarea.addEventListener('input', handleTextareaResize);
+    }
+});
