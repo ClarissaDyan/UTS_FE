@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/adobeAE.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>SkillUp! - Object Oriented Programming</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <nav class="nav-buttons" id="desktopNav">
+                    <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                    <a href="#courses" class="nav-btn">Kursus</a>
+                    <a href="#contact" class="nav-btn">Hubungi Kami</a>
+                </nav>
+            </div>
+            
+            <div class="header-center">
+                <a href="#hero" class="logo-link">
+                    <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
+                </a>
+            </div>
+            
+            <div class="header-right">
+                <div class="auth-buttons" id="authButtons">
+                    <a href="loginSignUp.html" class="login-btn">Masuk</a>
+                    <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
+                </div>
+                
+                <div class="user-menu hidden" id="userMenu">
+                    <span class="user-greeting" id="userGreeting">Halo, User!</span>
+                    <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+                </div>
+                
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                <a href="#courses" class="nav-btn">Kursus</a>
+                <a href="#contact" class="nav-btn">Hubungi Kami</a>
+            </nav>
+            
+            <div class="mobile-auth" id="mobileAuth">
+                <a href="loginSignUp.html" class="login-btn" style="width: 100%; text-align: center; display: block;">Masuk</a>
+                <a href="loginSignUp.html#signup" class="signup-btn" style="width: 100%; text-align: center; display: block;">Daftar</a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <main>
+            <section class="course-detail-header">
+                <div class="breadcrumbs">
+                    <a href="#">← Home</a>
+                    <span>&gt;</span>
+                    <a href="produkList.html">Kursus</a>
+                    <span>&gt;</span>
+                    <p>Object Oriented Programming [2020]</p>
+                </div>
+                
+                <div class="detail-content-wrapper">
+                    <div class="course-text-info">
+                        <h2>Object Oriented Programming [2020]</h2>
+                        <p class="course-description">
+                            Object Oriented Programming (OOP) adalah salah satu paradigma pemrograman tercanggih yang banyak digunakan di dunia pengembangan perangkat lunak saat ini. Dengan konsep inti seperti class, object, inheritance, dan polymorphism, OOP menghadirkan serangkaian fitur yang bertujuan untuk menciptakan kode yang lebih terstruktur, mudah dipelihara, dan efisien. Membangun aplikasi yang kompleks menjadi lebih sederhana karena setiap komponen dapat dimodelkan sebagai objek yang memiliki sifat dan perilaku, sehingga proses pengembangan hingga pengelolaan proyek perangkat lunak kini semakin terarah dan bermakna.
+                        </p>
+                    </div>
+                    <div class="course-media-placeholder">
+                            <img src="/static/OOP.jpg" alt="adobe after Effect">
+                    </div>
+                </div>
+
+                <div class="course-meta-info">
+                    <span>Instruktur: Darius</span>
+                    <span>Waktu Total: 78 menit</span>
+                    <span>Rilis: 1 September 2020</span>
+                </div>
+            </section>
+        </main>
+
+        <nav class="sticky-nav">
+            <ul>
+                <li><a href="#manfaat" class="active">Manfaat</a></li>
+                <li><a href="#kursus">Kursus</a></li>
+                <li><a href="#syarat">Syarat</a></li>
+            </ul>
+        </nav>
+
+        <div class="course-content-wrapper">
+            <div class="main-content-col">
+                <div class="learning-objectives" id="manfaat">
+                    <h2>Yang akan Anda pelajari:</h2>
+                    <ul>
+                        <li>Menguasai konsep-konsep praktis dan modern yang digunakan oleh para programmer profesional dalam pengembangan perangkat lunak berbasis OOP.</li>
+                        <li>Mempelajari prinsip inti OOP seperti class, object, inheritance, polymorphism, dan encapsulation yang menjadi fondasi aplikasi kompleks.</li>
+                        <li>Menerapkan keterampilan baru Anda pada proyek nyata untuk membangun sistem yang lebih terstruktur, efisien, dan mudah dikelola.</li>
+                    </ul>
+                </div>
+
+                <div class="skills-acquired">
+                    <h2>Keahlian yang akan Anda dapatkan:</h2>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Pemrograman Berorientasi Objek</span>
+                        <span class="skill-tag">Class & Object</span>
+                        <span class="skill-tag">Encapsulation</span>
+                        <span class="skill-tag">Inheritance</span>
+                        <span class="skill-tag">Polymorphism</span>
+                        <span class="skill-tag">Abstraction</span>
+                        <span class="skill-tag">Design Patterns Dasar</span>
+                        <span class="skill-tag">Pemodelan dengan UML</span>
+                    </div>
+                </div>
+
+                <div class="course-content-section" id="kursus">
+                    <div class="course-content-header">
+                        <div class="header-text">
+                            <h2>Konten Kursus:</h2>
+                            <p>10 Video - Total 78 menit</p>
+                        </div>
+                        <a href="#" class="promo-btn">Dua Video Pertama Gratis!</a>
+                    </div>
+
+                    <div class="video-list-container">
+                        <ul class="video-list">
+                            <li>
+                                <a href="https://youtu.be/OaO26DDkUrg?si=Y8zmAl8_egm-wI3D" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Tutorial Menggunakan Oracle Academy Dari Sisi Learner Mahasiswa atau Pelajar</span>
+                                    <span class="video-label">Gratis</span>
+                                    <span class="video-duration">08:23</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/sxYlPsOUdms?si=mj4Mq_n4qrwwVfwh" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Membedakan Object Oriented dengan Sequential Programming - Belajar OOP Dengan Java</span>
+                                    <span class="video-label">Gratis</span>
+                                    <span class="video-duration">07:53</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/upGTvTP7G9U?si=s7hcmtKGjtjhbjbE" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Greenfoot & Class Structure Method - Belajar OOP dengan Java</span>
+                                    <span class="video-duration">09:00</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/OCLiTqCTufU?si=q1LijIRk72fL2XRI" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Object VS Class with Wombat - Belajar OOP dengan Java</span>
+                                    <span class="video-duration">09:45</span>
+                                </a>
+                            </li>
+
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/323Xx7-yQa0?si=04JLhW0ld0pHR9Z3" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Install JDK, Compile & Run Java dengan CMD Command Prompt - Belajar OOP dengan Java</span>
+                                    <span class="video-duration">11:14</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/GypRwMZWQUQ?si=FaxSBbrFy5nXOsNc" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Overloading, This & Javadoc - Belajar OOP dengan Java</span>
+                                    <span class="video-duration">07:11</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/NZ6UdEwa3KA?si=NlLTrkbNd3KmZzSv" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Apa itu Static? - Belajar OOP dengan Java</span>
+                                    <span class="video-duration">03:48</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/RS55hmY_vxA?si=3Gly-NdBClRR8gbr" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Penggunaan OverRiding - Belajar OOP dengan Java</span>
+                                    <span class="video-duration">04:36</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/YBIfd2zf0XE?si=cVtd4bShMG4CVrdq" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Abstract & Interface - Belajar OOP dengan Java</span>
+                                    <span class="video-duration">07:43</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/H8_NzE1pmp4?si=42NhFjEwKsSSJy6o" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Pengenalan Eclipse</span>
+                                    <span class="video-duration">08:42</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <button class="show-more-btn">
+                            Lebih banyak <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="requirements-section" id="syarat">
+                    <h2>Syarat:</h2>
+                    <ul>
+                        <li>Tidak dibutuhkan pengalaman pemrograman sebelumnya. Kursus ini dirancang khusus untuk pemula dan semua konsep akan diajarkan dari nol.</li>
+                        <li>Komputer PC atau laptop dengan koneksi internet stabil. Disarankan memiliki RAM minimal 4GB agar coding berjalan dengan lancar.</li>
+                        <li>Software pendukung pemrograman sudah terinstal, seperti Java JDK atau Python, serta editor kode (contoh: VS Code atau IntelliJ).</li>
+                        <li>Kemauan dan semangat yang tinggi untuk belajar logika pemrograman dan membangun aplikasi nyata!</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="purchase-sidebar">
+                <div class="purchase-box">
+                    <h2>Beli Kursus</h2>
+                    <p class="price">Rp 120.000</p>
+                    <p class="student-count">
+                        <i class="fa-solid fa-fire"></i>
+                        <span>458 Pelajar sudah mendaftar</span>
+                    </p>
+                    <div class="action-buttons">
+                        <a href="pembayaran.html" class="btn btn-purchase primary">Beli Langsung</a>
+                    </div>
+                    <div class="includes-section">
+                        <p>Sudah termasuk:</p>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-play"></i> 10 Video Pembelajaran</li>
+                            <li><i class="fa-solid fa-infinity"></i> Akses Selamanya</li>
+                            <li><i class="fa-solid fa-file-arrow-down"></i> File Aset</li>
+                            <li><i class="fa-solid fa-trophy"></i> Sertifikat Penyelesaian</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="share-link">
+                        <i class="fa-solid fa-share-nodes"></i>
+                        Bagikan Kursus Ini
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="/static/Logo.png" alt="logo.png" class="footer-logo">
+                <p>Jadi kami adalah sebuah organisasi yang learning yang bergerak di bidang pendidikan, yapping yapping yapping yapping yapping yapping yap</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Kursus</h4>
+                <ul>
+                    <li><a href="#">Web dev</a></li>
+                    <li><a href="#">Game dev</a></li>
+                    <li><a href="#">Compilation</a></li>
+                    <li><a href="#">Database</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Media Sosial</h4>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-github"></i> Github</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fas fa-link"></i> 0812345678</li>
+                    <li><i class="fas fa-envelope"></i> SkillUp@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jln ini aja dulu</li>
+                    <li><i class="fas fa-clock"></i> Senin-Jumat 08:00 - 17:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© SkillUp. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="js/home.js" type="module"></script>
+
+    <script>
+        const showMoreButton = document.querySelector('.show-more-btn');
+        const hiddenVideos = document.querySelectorAll('.video-list li.video-hidden');
+
+        showMoreButton.addEventListener('click', () => {
+            // Cek apakah daftar video sedang terbuka (expanded)
+            const isExpanded = showMoreButton.classList.contains('expanded');
+
+            if (isExpanded) {
+                // JIKA SUDAH TERBUKA, maka SEMBUNYIKAN KEMBALI
+                hiddenVideos.forEach(video => {
+                    video.style.display = 'none'; // Sembunyikan video
+                });
+                
+                // Ubah kembali teks dan ikon tombol
+                showMoreButton.innerHTML = 'Lebih banyak <i class="fa-solid fa-chevron-down"></i>';
+                showMoreButton.classList.remove('expanded');
+
+            } else {
+                // JIKA MASIH TERTUTUP, maka TAMPILKAN
+                hiddenVideos.forEach(video => {
+                    video.style.display = 'block'; // Tampilkan video
+                });
+
+                // Ubah teks dan ikon tombol
+                showMoreButton.innerHTML = 'Lebih sedikit <i class="fa-solid fa-chevron-up"></i>';
+                showMoreButton.classList.add('expanded');
+            }
+        });
+    </script>
+    
+</body>
+</html>
