@@ -9,7 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
             students: 456,
             price: 120000,
             image: '/static/AdobeEA.jpeg',
-            category: 'Adobe'
+            category: 'Adobe',
+            detailPage: 'DetailAdobe.html' // Link ke halaman detail
         },
         {
             title: 'Kuliah Struktur Data [2020]',
@@ -20,7 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
             students: 231,
             price: 230000,
             image: '/static/StrukturData.jpg',
-            category: 'Programming'
+            category: 'Programming',
+            detailPage: 'DetailStruktur.html' // Link ke halaman detail
         },
         {
             title: 'Roblox Studio untuk Prototyping Game [2025]',
@@ -31,7 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
             students: 783,
             price: 0,
             image: '/static/Roblox.jpg',
-            category: 'Roblox'
+            category: 'Roblox',
+            detailPage: 'DetailRoblox.html' // Link ke halaman detail
         },
         {
             title: 'Blender 3D Modelling [2020]',
@@ -42,7 +45,8 @@ document.addEventListener('DOMContentLoaded', () => {
             students: 556,
             price: 50000,
             image: '/static/Blender.jpg',
-            category: 'Blender'
+            category: 'Blender',
+            detailPage: 'DetailBlender.html' // Link ke halaman detail
         },
         {
             title: 'Object Oriented Programming [2020]',
@@ -53,7 +57,8 @@ document.addEventListener('DOMContentLoaded', () => {
             students: 92,
             price: 80000,
             image: '/static/OOP.jpg',
-            category: 'Programming'
+            category: 'Programming',
+            detailPage: 'DetailOOP.html' // Link ke halaman detail
         }
     ];
 
@@ -61,7 +66,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const filterCheckboxes = document.querySelectorAll('.filters input[type="checkbox"]');
 
     function displayCourses(filteredCourses) {
-        // Hapus semua card yang ada, kecuali header
         courseListContainer.innerHTML = `<div class="list-header"><p>${filteredCourses.length} Hasil</p></div>`;
 
         if (filteredCourses.length === 0) {
@@ -86,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
                             </div>
                         </div>
                         <div class="buttons">
-                            <a href="#" class="btn btn-card">Lihat</a>
+                            <a href="${course.detailPage}" class="btn btn-card">Lihat</a>
                             <a href="/pembayaran.html" class="btn btn-card">Beli</a>
                         </div>
                     </div>
