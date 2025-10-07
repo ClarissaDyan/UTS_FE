@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillUp! - Riwayat Pembayaran</title>
+    
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="css/home.css"> <link rel="stylesheet" href="css/riwayat.css"> </head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <a href="home.html" class="logo-link">
+                    <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
+                </a>
+                <nav class="nav-buttons" id="desktopNav">
+                    <a href="home.html#hero" class="nav-btn">Halaman Utama</a>
+                    <a href="home.html#courses" class="nav-btn">Kursus</a>
+                    <a href="home.html#contact" class="nav-btn">Hubungi Kami</a>
+                </nav>
+            </div>
+            
+            <div class="header-right">
+                <div class="auth-buttons" id="authButtons">
+                    <a href="loginSignUp.html" class="btn login-btn">Masuk</a>
+                    <a href="loginSignUp.html?auth=signup" class="btn signup-btn">Daftar</a>
+                </div>
+                
+                <div class="user-profile-menu hidden" id="userProfileMenu"> 
+                    <span class="user-greeting" id="userGreeting">Halo, User!</span>
+                    <a href="riwayat.html" class="btn payment-history active">Riwayat Pembayaran</a> <div class="dropdown-user-menu">
+                        <button class="btn profile-toggle-btn" id="profileToggleBtn">
+                            <i class="fas fa-user-circle"></i>
+                        </button>
+                        <div class="dropdown-content-user" id="dropdownContentUser">
+                            <a href="profile.html">Profil Saya</a>
+                            <a href="#" id="logoutButton">Keluar</a>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="home.html#hero" class="nav-btn">Halaman Utama</a>
+                <a href="home.html#courses" class="nav-btn">Kursus</a>
+                <a href="home.html#contact" class="nav-btn">Hubungi Kami</a>
+            </nav>
+            
+            <div class="mobile-auth" id="mobileAuth">
+                 </div>
+        </div>
+    </header>
+
+    <main class="history-container">
+        <h1>Riwayat Pembayaran Anda</h1>
+        
+        <div id="transactionList" class="transaction-list">
+            <p id="noTransactionsMessage">Anda belum memiliki riwayat pembayaran.</p>
+        </div>
+    </main>
+
+    <footer class="footer">
+        </footer>
+    
+    <script src="js/authGuard.js" type="module"></script>
+    <script src="js/home.js" type="module"></script> <script src="js/riwayat.js" type="module"></script> </body>
+</html>
