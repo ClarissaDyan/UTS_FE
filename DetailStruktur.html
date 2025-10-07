@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/adobeAE.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <title>SkillUp! - Struktur Data [2020]</title>
+</head>
+<body>
+    <header class="header">
+        <div class="header-container">
+            <div class="header-left">
+                <nav class="nav-buttons" id="desktopNav">
+                    <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                    <a href="#courses" class="nav-btn">Kursus</a>
+                    <a href="#contact" class="nav-btn">Hubungi Kami</a>
+                </nav>
+            </div>
+            
+            <div class="header-center">
+                <a href="#hero" class="logo-link">
+                    <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
+                </a>
+            </div>
+            
+            <div class="header-right">
+                <div class="auth-buttons" id="authButtons">
+                    <a href="loginSignUp.html" class="login-btn">Masuk</a>
+                    <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
+                </div>
+                
+                <div class="user-menu hidden" id="userMenu">
+                    <span class="user-greeting" id="userGreeting">Halo, User!</span>
+                    <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
+                    <a href="profile.html" class="profile-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
+                </div>
+                
+                <button class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+        
+        <div class="mobile-menu" id="mobileMenu">
+            <nav class="mobile-nav">
+                <a href="#hero" class="nav-btn active">Halaman Utama</a>
+                <a href="#courses" class="nav-btn">Kursus</a>
+                <a href="#contact" class="nav-btn">Hubungi Kami</a>
+            </nav>
+            
+            <div class="mobile-auth" id="mobileAuth">
+                <a href="loginSignUp.html" class="login-btn" style="width: 100%; text-align: center; display: block;">Masuk</a>
+                <a href="loginSignUp.html#signup" class="signup-btn" style="width: 100%; text-align: center; display: block;">Daftar</a>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="container">
+        <main>
+            <section class="course-detail-header">
+                <div class="breadcrumbs">
+                    <a href="#">← Home</a>
+                    <span>&gt;</span>
+                    <a href="produkList.html">Kursus</a>
+                    <span>&gt;</span>
+                    <p>Struktur Data [2020]</p>
+                </div>
+                
+                <div class="detail-content-wrapper">
+                    <div class="course-text-info">
+                        <h2>Struktur Data [2020]</h2>
+                        <p class="course-description">
+                            Struktur data adalah fondasi dari ilmu komputer modern dan merupakan komponen inti dalam rekayasa perangkat lunak yang efisien. Dengan memahami bagaimana cara menyimpan, mengatur, dan mengelola data secara efektif, seorang pengembang dapat merancang algoritma yang lebih cepat dan solusi yang lebih optimal. Menguasai konsep fundamental seperti array, linked list, stack, dan tree akan membuka jalan untuk membangun aplikasi yang kuat dan berskala besar.
+                        </p>
+                    </div>
+                    <div class="course-media-placeholder">
+                            <img src="/static/StrukturData.jpg" alt="adobe after Effect">
+                    </div>
+                </div>
+
+                <div class="course-meta-info">
+                    <span>Instruktur: Darius</span>
+                    <span>Waktu Total: 1 jam 10 menit</span>
+                    <span>Rilis: 25 November 2020</span>
+                </div>
+            </section>
+        </main>
+
+        <nav class="sticky-nav">
+            <ul>
+                <li><a href="#manfaat" class="active">Manfaat</a></li>
+                <li><a href="#kursus">Kursus</a></li>
+                <li><a href="#syarat">Syarat</a></li>
+            </ul>
+        </nav>
+
+        <div class="course-content-wrapper">
+            <div class="main-content-col">
+                <div class="learning-objectives" id="manfaat">
+                    <h2>Yang akan Anda pelajari:</h2>
+                    <ul>
+                        <li>Memahami konsep dasar dan pentingnya struktur data dalam pemrograman yang efisien.</li>
+                        <li>Mempelajari implementasi Array, termasuk penggunaan Array di dalam Structure untuk mengelola data yang kompleks.</li>
+                        <li>Menguasai konsep struktur data non-linear seperti Tree, Binary Tree, dan Graph serta aplikasinya dalam menyelesaikan masalah.</li>
+                        <li>Membangun fondasi yang kuat untuk mempelajari algoritma dan struktur data tingkat lanjut.</li>
+                    </ul>
+                </div>
+
+                <div class="skills-acquired">
+                    <h2>Keahlian yang akan Anda dapatkan:</h2>
+                    <div class="skills-tags">
+                        <span class="skill-tag">Analisis Algoritma</span>
+                        <span class="skill-tag">Struktur Data</span>
+                        <span class="skill-tag">Manajemen Memori</span>
+                        <span class="skill-tag">Problem Solving</span>
+                        <span class="skill-tag">Array & Linked List</span>
+                        <span class="skill-tag">Stack & Queue</span>
+                        <span class="skill-tag">Trees & Graphs</span>
+                        <span class="skill-tag">Hash Tables</span>
+                        <span class="skill-tag">Kompleksitas Waktu (Big O)</span>
+                        <span class="skill-tag">Rekursi</span>
+                        <span class="skill-tag">Optimasi Kode</span>
+                        <span class="skill-tag">Dasar C++</span>
+                    </div>
+                </div>
+
+                <div class="course-content-section" id="kursus">
+                    <div class="course-content-header">
+                        <div class="header-text">
+                            <h2>Konten Kursus:</h2>
+                            <p>13 Video - Total 1 jam 10 menit</p>
+                        </div>
+                        <a href="#" class="promo-btn">Dua Video Pertama Gratis!</a>
+                    </div>
+
+                    <div class="video-list-container">
+                        <ul class="video-list">
+                            <li>
+                                <a href="https://youtu.be/RoKfhtE2G6c?si=VZ1XG8UyOwp0oi-c" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Stack - Struktur Data</span>
+                                    <span class="video-label">Gratis</span>
+                                    <span class="video-duration">07:16</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/GC3jA6Cym1E?si=4zavVRDqhFNtbE-c" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Queue - Struktur Data</span>
+                                    <span class="video-label">Gratis</span>
+                                    <span class="video-duration">06:23</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/M9i_-UVpRmE?si=IwMe7Ag7I-hRnGZf" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Hash - Struktur Data</span>
+                                    <span class="video-duration">08:29</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://youtu.be/uX1HmvKbaU8?si=RBlEK47GN-4D3mlZ" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Binary Search Tree - Struktur Data</span>
+                                    <span class="video-duration">03:13  </span>
+                                </a>
+                            </li>
+
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/4eBfmPa4124?si=3O0dVxkOwVZCcgBg" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Tree Travelsal - Struktur Data</span>
+                                    <span class="video-duration">05:35</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/d5C1MqDZDZQ?si=vkbk_fKQlSv7ZQNL" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Avl Tree - Struktur Data</span>
+                                    <span class="video-duration">04:47</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/_gq_t5byFcU?si=QhpFe2NB315erjpr" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Heap - Struktur Data</span>
+                                    <span class="video-duration">02:49</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/9PR8tl3KspQ?si=4HEwQ-i6423V1_Nx" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Huffman Code - Struktur Data</span>
+                                    <span class="video-duration">03:03</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/xtcna3thBYI?si=iuyru-fpBU4Qz011" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Graph BFS & DFS - Struktur Data</span>
+                                    <span class="video-duration">06:48</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/sX7x54uyPzY?si=6F1bDumVr7qmPlXf" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">ALgoritma Dijikstra Graph - Struktur Data</span>
+                                    <span class="video-duration">07:31</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/MgdeDVP2CvU?si=gWmoF_i76J6FMq-4" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Minimum Spanning Tree - Struktur Data</span>
+                                    <span class="video-duration">04:22</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/455nDoUvbw4?si=6-ej9u5UN7ewwcQW" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title">Topological Ordering Sort - Struktur Data</span>
+                                    <span class="video-duration">03:01</span>
+                                </a>
+                            </li>
+                            <li class="video-hidden">
+                                <a href="https://youtu.be/LrQUQCjkFJ0?si=xktj98NSGzRFojQR" target="_blank">
+                                    <i class="fa-solid fa-play-circle"></i>
+                                    <span class="video-title"> Critical Path Analysis Pada Task Network - Struktur Data</span>
+                                    <span class="video-duration">05:44</span>
+                                </a>
+                            </li>
+                        </ul>
+                        <button class="show-more-btn">
+                            Lebih banyak <i class="fa-solid fa-chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="requirements-section" id="syarat">
+                    <h2>Syarat:</h2>
+                    <ul>
+                        <li>Memiliki pemahaman dasar tentang logika pemrograman. Pengalaman dengan bahasa C++ akan sangat membantu, meskipun konsepnya dapat diterapkan ke bahasa lain.</li>
+                        <li>Komputer atau laptop dengan koneksi internet untuk mengakses video dan materi pembelajaran.</li>
+                        <li>Sebuah code editor (seperti Visual Studio Code, Sublime Text, dll.) dan compiler C++ yang sudah terinstal untuk dapat mengikuti dan mencoba langsung contoh-contoh kode.</li>
+                        <li>Keinginan kuat untuk memecahkan masalah, berpikir secara logis, dan memahami bagaimana cara menulis kode yang efisien.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <aside class="purchase-sidebar">
+                <div class="purchase-box">
+                    <h2>Beli Kursus</h2>
+                    <p class="price">Rp 120.000</p>
+                    <p class="student-count">
+                        <i class="fa-solid fa-fire"></i>
+                        <span>458 Pelajar sudah mendaftar</span>
+                    </p>
+                    <div class="action-buttons">
+                        <a href="pembayaran.html" class="btn btn-purchase primary">Beli Langsung</a>
+                    </div>
+                    <div class="includes-section">
+                        <p>Sudah termasuk:</p>
+                        <ul>
+                            <li><i class="fa-solid fa-circle-play"></i> 13 Video Pembelajaran</li>
+                            <li><i class="fa-solid fa-infinity"></i> Akses Selamanya</li>
+                            <li><i class="fa-solid fa-file-arrow-down"></i> File Aset</li>
+                            <li><i class="fa-solid fa-trophy"></i> Sertifikat Penyelesaian</li>
+                        </ul>
+                    </div>
+                    <a href="#" class="share-link">
+                        <i class="fa-solid fa-share-nodes"></i>
+                        Bagikan Kursus Ini
+                    </a>
+                </div>
+            </aside>
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="/static/Logo.png" alt="logo.png" class="footer-logo">
+                <p>Jadi kami adalah sebuah organisasi yang learning yang bergerak di bidang pendidikan, yapping yapping yapping yapping yapping yapping yap</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Kursus</h4>
+                <ul>
+                    <li><a href="#">Web dev</a></li>
+                    <li><a href="#">Game dev</a></li>
+                    <li><a href="#">Compilation</a></li>
+                    <li><a href="#">Database</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Media Sosial</h4>
+                <ul>
+                    <li><a href="#"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="#"><i class="fab fa-github"></i> Github</a></li>
+                    <li><a href="#"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="#"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="#"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fas fa-link"></i> 0812345678</li>
+                    <li><i class="fas fa-envelope"></i> SkillUp@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jln ini aja dulu</li>
+                    <li><i class="fas fa-clock"></i> Senin-Jumat 08:00 - 17:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© SkillUp. All rights reserved</p>
+        </div>
+    </footer>
+
+    <script src="js/home.js" type="module"></script>
+
+    <script>
+        const showMoreButton = document.querySelector('.show-more-btn');
+        const hiddenVideos = document.querySelectorAll('.video-list li.video-hidden');
+
+        showMoreButton.addEventListener('click', () => {
+            // Cek apakah daftar video sedang terbuka (expanded)
+            const isExpanded = showMoreButton.classList.contains('expanded');
+
+            if (isExpanded) {
+                // JIKA SUDAH TERBUKA, maka SEMBUNYIKAN KEMBALI
+                hiddenVideos.forEach(video => {
+                    video.style.display = 'none'; // Sembunyikan video
+                });
+                
+                // Ubah kembali teks dan ikon tombol
+                showMoreButton.innerHTML = 'Lebih banyak <i class="fa-solid fa-chevron-down"></i>';
+                showMoreButton.classList.remove('expanded');
+
+            } else {
+                // JIKA MASIH TERTUTUP, maka TAMPILKAN
+                hiddenVideos.forEach(video => {
+                    video.style.display = 'block'; // Tampilkan video
+                });
+
+                // Ubah teks dan ikon tombol
+                showMoreButton.innerHTML = 'Lebih sedikit <i class="fa-solid fa-chevron-up"></i>';
+                showMoreButton.classList.add('expanded');
+            }
+        });
+    </script>
+    
+</body>
+</html>
