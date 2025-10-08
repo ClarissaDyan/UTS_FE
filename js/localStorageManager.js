@@ -144,8 +144,24 @@ export function updateUserCourseProgress(userId, courseId, newProgress, newStatu
     }
 }
 
-// User-specific transactions (e.g., payment history)
-// Structure: { userId: [{ transactionId, courseId, amount, date }] }
+const KEY_USER_PROGRESS = 'userCourseProgress';
+
+// Fungsi untuk mendapatkan semua data progres
+export function getUserCourseProgress(userId) {
+    const allProgress = JSON.parse(localStorage.getItem(KEY_USER_PROGRESS) || '{}');
+    return allProgress[userId] || {}; // Mengembalikan objek progres untuk user tersebut
+}
+
+// Fungsi untuk menyimpan progres untuk satu kursus
+export function saveUserCourseProgress(userId, courseTitle, newProgress) {
+    const allProgress = JSON.parse(localStorage.getItem(KEY_USER_PROGRESS) || '{}');
+    if (!allProgress[userId]) {
+        allProgress[userId] = {};
+    }
+    allProgress[userId][courseTitle] = newProgress > 100 ? 100 : newProgress; // Batasi progres maksimal 100
+    localStorage.setItem(KEY_USER_PROGRESS, JSON.stringify(allProgress));
+}
+
 const KEY_USER_TRANSACTIONS = 'userTransactions';
 
 export function getUserTransactions(userId) {

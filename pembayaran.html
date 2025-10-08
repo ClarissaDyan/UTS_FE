@@ -39,6 +39,7 @@
 
     <div class="user-menu hidden" id="userMenu">
         <span class="user-greeting" id="userGreeting">Halo, User!</span>
+        <a href="active-learning.html" class="nav-btn">Dasbor Belajar</a>
         <a href="riwayat.html" class="payment-history">Riwayat Pembayaran</a>
                     <a href="user.html" class="profile-btn">
             <i class="fas fa-user"></i>
@@ -156,8 +157,19 @@
     
     <script src="js/authGuard.js" type="module"></script>
     <script src="js/home.js" type="module"></script>
-    <script>
+    <script type="module">
+        // Kita import fungsi yang dibutuhkan dari localStorageManager
+        import { getCurrentUser, addTransaction } from './js/localStorageManager.js';
+
+        // Pastikan pengguna sudah login untuk berada di halaman ini
+        const currentUser = getCurrentUser();
+        if (!currentUser) {
+            alert('Sesi Anda telah berakhir. Silakan login kembali untuk melanjutkan pembayaran.');
+            window.location.href = 'loginSignUp.html';
+        }
+
         document.querySelector('.btn-bayar').addEventListener('click', function() {
+            // --- Bagian Validasi (Sama seperti kode Anda) ---
             const nama = document.getElementById('nama').value.trim();
             const telp = document.getElementById('telp').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -166,29 +178,54 @@
 
             let errors = [];
 
-            if (!nama) {
-                errors.push('Nama');
-            }
-            if (!telp) {
-                errors.push('No Telpon');
-            } else if (telp.length < 8) {
-                alert('Nomor Telepon minimal harus 8 karakter.');
+            if (!nama) errors.push('Nama');
+            if (!telp) errors.push('No Telpon');
+            if (!email) errors.push('Email');
+            else if (!emailRegex.test(email)) {
+                alert('Format email tidak valid.');
                 return;
             }
-            if (!email) {
-                errors.push('Email');
-            } else if (!emailRegex.test(email)) {
-                alert('Format email tidak valid. Harap gunakan format seperti "contoh@email.com".');
-                return;
-            }
-            if (!metode) {
-                errors.push('Metode Pembayaran');
-            }
+            if (!metode) errors.push('Metode Pembayaran');
 
             if (errors.length > 0) {
                 alert('Harap isi kolom berikut: ' + errors.join(', '));
-            } else {
-                window.location.href = 'payment-success.html';
+                return; // Hentikan proses jika ada error
+            }
+
+            // --- Bagian BARU: Menyimpan Data Transaksi ---
+            
+            // 1. Ambil detail kursus dari halaman (saat ini masih statis)
+            const courseTitle = document.querySelector('.summary-section h3').innerText;
+            const coursePriceText = document.querySelector('.summary-section .course-price strong').innerText;
+            const courseThumbnail = document.querySelector('.summary-section .course-image').src;
+            
+            // Konversi harga dari "Rp120,000" menjadi angka 120000
+            const amount = parseInt(coursePriceText.replace(/[^0-9]/g, ''));
+
+            // 2. Buat objek transaksi
+            const newTransaction = {
+                transactionId: `TRX-${Date.now()}-${Math.random().toString(36).substr(2, 5)}`,
+                courseTitle: courseTitle,
+                courseThumbnail: courseThumbnail,
+                amount: amount,
+                date: new Date().toISOString(), // Format tanggal standar
+                paymentMethod: metode,
+                status: "Lunas" // Sesuai permintaan
+            };
+
+            // 3. Panggil fungsi addTransaction untuk menyimpan data
+            try {
+                addTransaction(currentUser.id, newTransaction);
+                
+                // Beri notifikasi berhasil
+                alert('Pembayaran berhasil!');
+                
+                // 4. Arahkan ke halaman riwayat
+                window.location.href = 'riwayat.html';
+
+            } catch (error) {
+                console.error("Gagal menyimpan transaksi:", error);
+                alert("Terjadi kesalahan saat memproses pembayaran Anda. Silakan coba lagi.");
             }
         });
     </script>
