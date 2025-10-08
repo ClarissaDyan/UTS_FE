@@ -201,12 +201,100 @@ function closeMobileMenu() {
 }
 
 function initializeEventListeners() {
+    const navLinks = document.querySelectorAll('#desktopNav .nav-btn, .mobile-nav .nav-btn');
     const contactForm = document.getElementById('contactForm');
+    
+    const currentPath = window.location.pathname; // Mendapatkan path URL saat ini (e.g., /home.html, /produkList.html)
+
+    navLinks.forEach(link => {
+        link.classList.remove('active'); // Hapus semua 'active' terlebih dahulu
+        const linkPath = link.getAttribute('href');
+
+        // Tandai link 'Kursus' sebagai aktif jika berada di halaman produkList.html
+        if (currentPath.includes('produkList.html') && linkPath.includes('produkList.html')) {
+            link.classList.add('active');
+        } 
+        // Tandai link 'Halaman Utama' sebagai aktif jika berada di halaman home.html
+        else if (currentPath.includes('home.html') && linkPath.includes('home.html')) {
+            // Biarkan IntersectionObserver yang menangani ini jika di home.html,
+            // tapi kita bisa set default ke 'Halaman Utama'
+            if (link.getAttribute('href') === '/home.html' || link.getAttribute('href') === '#hero') {
+                 link.classList.add('active');
+            }
+        }
+    });
+
+    // Cek apakah kita sedang berada di halaman home.html
+    const isHomePage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/home.html');
+
+    navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetUrl = this.getAttribute('href');
+            
+            navLinks.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            if (isHomePage && targetUrl.startsWith('#')) {
+                // Jika di home.html dan link adalah anchor (#)
+                e.preventDefault(); // Hentikan perilaku default
+
+                const targetElement = document.querySelector(targetUrl);
+                if (targetElement) {
+                    // Lakukan smooth scroll
+                    const headerHeight = document.querySelector('.header').offsetHeight;
+                    const targetPosition = targetElement.offsetTop - headerHeight;
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            } else if (!isHomePage && targetUrl.startsWith('/home.html#')) {
+                // Jika di halaman lain dan link mengarah ke bagian di home.html
+                // Tidak perlu e.preventDefault(), biarkan browser mengarahkan
+                // Browser akan otomatis pindah ke home.html dan scroll ke #contact
+            } else if (!isHomePage && targetUrl === '/produkList.html') {
+                // Jika di halaman lain dan link adalah /produkList.html
+                // Biarkan perilaku default berjalan
+            }
+            // Untuk semua kasus lain (seperti link Halaman Utama dari page lain),
+            // biarkan browser menangani navigasi secara normal.
+        });
+    });
+    
     if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
             alert('Pesan berhasil dikirim! Tim kami akan segera menghubungi Anda.');
             this.reset();
+        });
+    }
+
+    // Logika untuk active state saat scroll (HANYA JIKA DI HOME.HTML)
+    if (isHomePage) {
+        const sections = document.querySelectorAll('main section[id]');
+        const observerOptions = {
+            root: null,
+            rootMargin: '-80px 0px -50% 0px', // Aktifkan saat bagian atas section melewati 80px dari atas viewport
+            threshold: 0
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                const id = entry.target.getAttribute('id');
+                const navLink = document.querySelector(`.nav-btn[href="#${id}"]`);
+
+                if (navLink) {
+                    if (entry.isIntersecting) {
+                        // Hapus semua 'active' terlebih dahulu
+                        navLinks.forEach(link => link.classList.remove('active'));
+                        // Tambahkan 'active' ke link yang sesuai
+                        navLink.classList.add('active');
+                    }
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
         });
     }
 }
