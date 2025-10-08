@@ -4,44 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SkillUp! - Riwayat Pembayaran</title>
-    
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/home.css"> <link rel="stylesheet" href="css/riwayat.css"> </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/home.css"> 
+    <link rel="stylesheet" href="css/riwayat.css"> </head>
 <body>
     <header class="header">
         <div class="header-container">
             <div class="header-left">
-                <a href="home.html" class="logo-link">
-                    <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
-                </a>
                 <nav class="nav-buttons" id="desktopNav">
                     <a href="home.html#hero" class="nav-btn">Halaman Utama</a>
-                    <a href="home.html#courses" class="nav-btn">Kursus</a>
-                    <a href="home.html#contact" class="nav-btn">Hubungi Kami</a>
+                    <a href="produkList.html" class="nav-btn">Kursus</a> <a href="home.html#contact" class="nav-btn">Hubungi Kami</a>
                 </nav>
+            </div>
+            
+            <div class="header-center">
+                <a href="home.html#hero" class="logo-link">
+                    <img src="/static/Logo.png" class="logo-image" alt="SkillUp! Logo">
+                </a>
             </div>
             
             <div class="header-right">
                 <div class="auth-buttons" id="authButtons">
-                    <a href="loginSignUp.html" class="btn login-btn">Masuk</a>
-                    <a href="loginSignUp.html?auth=signup" class="btn signup-btn">Daftar</a>
+                    <a href="loginSignUp.html" class="login-btn">Masuk</a>
+                    <a href="loginSignUp.html#signup" class="signup-btn">Daftar</a>
                 </div>
                 
-                <div class="user-profile-menu hidden" id="userProfileMenu"> 
+                <div class="user-menu hidden" id="userMenu">
                     <span class="user-greeting" id="userGreeting">Halo, User!</span>
-                    <a href="riwayat.html" class="btn payment-history active">Riwayat Pembayaran</a> <div class="dropdown-user-menu">
-                        <button class="btn profile-toggle-btn" id="profileToggleBtn">
-                            <i class="fas fa-user-circle"></i>
-                        </button>
-                        <div class="dropdown-content-user" id="dropdownContentUser">
-                            <a href="profile.html">Profil Saya</a>
-                            <a href="#" id="logoutButton">Keluar</a>
-                        </div>
-                    </div>
+                    <a href="riwayat.html" class="payment-history nav-btn active">Riwayat Pembayaran</a> <a href="user.html" class="profile-btn">
+                        <i class="fas fa-user"></i>
+                    </a>
+                    <button class="logout-btn" onclick="handleLogout()">Keluar</button>
                 </div>
 
                 <button class="hamburger" id="hamburger">
@@ -55,26 +52,75 @@
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
                 <a href="home.html#hero" class="nav-btn">Halaman Utama</a>
-                <a href="home.html#courses" class="nav-btn">Kursus</a>
+                <a href="produkList.html" class="nav-btn">Kursus</a>
                 <a href="home.html#contact" class="nav-btn">Hubungi Kami</a>
             </nav>
             
             <div class="mobile-auth" id="mobileAuth">
-                 </div>
+                </div>
         </div>
     </header>
 
-    <main class="history-container">
-        <h1>Riwayat Pembayaran Anda</h1>
-        
-        <div id="transactionList" class="transaction-list">
-            <p id="noTransactionsMessage">Anda belum memiliki riwayat pembayaran.</p>
-        </div>
+    <main class="main-content riwayat-page-content">
+        <section class="riwayat-section">
+            <h2>Riwayat Pembayaran Anda</h2>
+            <p>Berikut adalah daftar transaksi pembelian kursus Anda.</p>
+            
+            <div id="transactionList" class="transactions-grid">
+                </div>
+
+            <div id="noTransactionsMessage" class="no-transactions-message hidden">
+                <p>Anda belum memiliki riwayat transaksi.</p>
+                <a href="produkList.html" class="more-btn">Mulai Belajar Sekarang</a>
+            </div>
+        </section>
     </main>
 
     <footer class="footer">
-        </footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <img src="/static/Logo.png" alt="logo.png" class="footer-logo">
+                <p>Jadi kami adalah sebuah organisasi yang learning yang bergerak di bidang pendidikan, yapping yapping yapping yapping yapping yapping yap</p>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Kursus</h4>
+                <ul>
+                    <li><a href="#">Web dev</a></li>
+                    <li><a href="#">Game dev</a></li>
+                    <li><a href="#">Compilation</a></li>
+                    <li><a href="#">Database</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Media Sosial</h4>
+                <ul>
+                    <li><a href="https://www.instagram.com/mr.r1u5/" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i> Instagram</a></li>
+                    <li><a href="https://github.com/ClarissaDyan" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> Github</a></li>
+                    <li><a href="https://www.facebook.com/share/1CAHt1TNtj/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook"></i> Facebook</a></li>
+                    <li><a href="https://www.youtube.com/@mr.riu5705" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i> Youtube</a></li>
+                    <li><a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i> Whatsapp</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>Hubungi Kami</h4>
+                <ul>
+                    <li><i class="fas fa-link"></i> 0812345678</li>
+                    <li><i class="fas fa-envelope"></i> SkillUp@gmail.com</li>
+                    <li><i class="fas fa-map-marker-alt"></i> Jln ini aja dulu</li>
+                    <li><i class="fas fa-clock"></i> Senin-Jumat 08:00 - 17:00</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>© SkillUp. All rights reserved</p>
+        </div>
+    </footer>
     
     <script src="js/authGuard.js" type="module"></script>
-    <script src="js/home.js" type="module"></script> <script src="js/riwayat.js" type="module"></script> </body>
+    <script src="js/home.js" type="module"></script> <script src="js/riwayat.js" type="module"></script>
+</body>
 </html>
