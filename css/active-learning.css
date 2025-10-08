@@ -1,0 +1,177 @@
+/* css/active-learning.css */
+
+.learning-dashboard {
+    background: white;
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 40px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.learning-dashboard h1 {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 40px;
+}
+
+.learning-dashboard h2 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1F2937;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #E5E7EB;
+}
+
+.continue-learning-section {
+    margin-bottom: 50px;
+}
+
+/* Kartu besar untuk "Lanjutkan Belajar" */
+.course-card-large {
+    display: flex;
+    background: linear-gradient(90deg, #667EEA 0%, #9F7AEA 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px rgba(91, 33, 182, 0.3);
+    color: white;
+    min-height: 250px;
+}
+
+.course-card-large .thumbnail {
+    width: 40%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+
+.course-card-large .info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+}
+
+.course-card-large .info h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.course-card-large .info p {
+    font-size: 16px;
+    opacity: 0.9;
+    flex-grow: 1;
+}
+
+/* Progress Bar Styling */
+.progress-bar-container {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    height: 12px;
+    margin-top: 20px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    background-color: #FF6B35;
+    height: 100%;
+    width: 0%; /* Diatur oleh JavaScript */
+    border-radius: 20px;
+    transition: width 0.5s ease-in-out;
+}
+
+.progress-text {
+    text-align: right;
+    font-size: 14px;
+    font-weight: 600;
+    margin-top: 8px;
+}
+
+.btn-lanjutkan {
+    background-color: #FF6B35;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    align-self: flex-start; /* Tombol rata kiri */
+    margin-top: auto; /* Mendorong tombol ke bawah */
+}
+
+.btn-lanjutkan:hover {
+    background-color: #e55a2e;
+}
+
+/* Grid untuk "Kursus Saya" */
+.my-courses-section .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.my-courses-section .course-card {
+    background: #5B21B6;
+    border-radius: 20px;
+    overflow: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 15px rgba(91, 33, 182, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.my-courses-section .course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(91, 33, 182, 0.3);
+}
+
+.my-courses-section .course-card .thumbnail {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.my-courses-section .course-card .info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.my-courses-section .course-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+.my-courses-section .course-card .progress-bar-container {
+    height: 10px; /* Progress bar lebih kecil di kartu ini */
+}
+
+a.course-card-large-link, a.course-card-link {
+    text-decoration: none; /* Menghilangkan garis bawah */
+    color: inherit; /* Mewarisi warna dari parent (dalam kasus ini putih) */
+    display: block; /* Membuat area link memenuhi kartu */
+}
+
+/* Pastikan kartu di dalam link mengambil tinggi penuh */
+a.course-card-link .course-card {
+    height: 100%;
+}
+/* Pesan jika tidak ada kursus */
+.no-courses-message {
+    text-align: center;
+    padding: 40px;
+    background: #F3F4F6;
+    border-radius: 12px;
+}
+.hidden {
+    display: none;
+}
