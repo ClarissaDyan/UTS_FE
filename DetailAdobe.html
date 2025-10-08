@@ -15,7 +15,7 @@
         <div class="header-container">
             <div class="header-left">
                 <nav class="nav-buttons" id="desktopNav">
-                    <a href="/home.html" class="nav-btn active">Halaman Utama</a>
+                    <a href="/home.html" class="nav-btn">Halaman Utama</a>
                     <a href="/produkList.html" class="nav-btn">Kursus</a>
                     <a href="/home.html" class="nav-btn">Hubungi Kami</a>
                 </nav>
@@ -52,7 +52,7 @@
         
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
-                <a href="/home.html" class="nav-btn active">Halaman Utama</a>
+                <a href="/home.html" class="nav-btn">Halaman Utama</a>
                 <a href="/produkList.html" class="nav-btn">Kursus</a>
                 <a href="/home.html#contact" class="nav-btn">Hubungi Kami</a>
             </nav>
@@ -309,31 +309,29 @@
         const hiddenVideos = document.querySelectorAll('.video-list li.video-hidden');
 
         showMoreButton.addEventListener('click', () => {
-            // Cek apakah daftar video sedang terbuka (expanded)
             const isExpanded = showMoreButton.classList.contains('expanded');
-
             if (isExpanded) {
-                // JIKA SUDAH TERBUKA, maka SEMBUNYIKAN KEMBALI
                 hiddenVideos.forEach(video => {
-                    video.style.display = 'none'; // Sembunyikan video
+                    video.style.display = 'none';
                 });
-                
-                // Ubah kembali teks dan ikon tombol
                 showMoreButton.innerHTML = 'Lebih banyak <i class="fa-solid fa-chevron-down"></i>';
                 showMoreButton.classList.remove('expanded');
-
             } else {
-                // JIKA MASIH TERTUTUP, maka TAMPILKAN
                 hiddenVideos.forEach(video => {
-                    video.style.display = 'block'; // Tampilkan video
+                    video.style.display = 'block';
                 });
-
-                // Ubah teks dan ikon tombol
                 showMoreButton.innerHTML = 'Lebih sedikit <i class="fa-solid fa-chevron-up"></i>';
                 showMoreButton.classList.add('expanded');
             }
         });
+        const stickyNavLinks = document.querySelectorAll('.sticky-nav ul li a');
+
+        stickyNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                stickyNavLinks.forEach(navLink => navLink.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
     </script>
-    
 </body>
 </html>

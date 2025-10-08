@@ -15,7 +15,7 @@
         <div class="header-container">
             <div class="header-left">
                 <nav class="nav-buttons" id="desktopNav">
-                    <a href="/home.html" class="nav-btn active">Halaman Utama</a>
+                    <a href="/home.html" class="nav-btn">Halaman Utama</a>
                     <a href="/produkList.html" class="nav-btn">Kursus</a>
                     <a href="/home.html" class="nav-btn">Hubungi Kami</a>
                 </nav>
@@ -52,7 +52,7 @@
         
         <div class="mobile-menu" id="mobileMenu">
             <nav class="mobile-nav">
-                <a href="/home.html" class="nav-btn active">Halaman Utama</a>
+                <a href="/home.html" class="nav-btn">Halaman Utama</a>
                 <a href="/produkList.html" class="nav-btn">Kursus</a>
                 <a href="/home.html#contact" class="nav-btn">Hubungi Kami</a>
             </nav>
@@ -279,32 +279,30 @@
         const showMoreButton = document.querySelector('.show-more-btn');
         const hiddenVideos = document.querySelectorAll('.video-list li.video-hidden');
 
-        if (!hiddenVideos || hiddenVideos.length === 0) {
-            if(showMoreButton) {
-                showMoreButton.style.display = 'none';
+        showMoreButton.addEventListener('click', () => {
+            const isExpanded = showMoreButton.classList.contains('expanded');
+            if (isExpanded) {
+                hiddenVideos.forEach(video => {
+                    video.style.display = 'none';
+                });
+                showMoreButton.innerHTML = 'Lebih banyak <i class="fa-solid fa-chevron-down"></i>';
+                showMoreButton.classList.remove('expanded');
+            } else {
+                hiddenVideos.forEach(video => {
+                    video.style.display = 'block';
+                });
+                showMoreButton.innerHTML = 'Lebih sedikit <i class="fa-solid fa-chevron-up"></i>';
+                showMoreButton.classList.add('expanded');
             }
-        } else {
-            showMoreButton.addEventListener('click', () => {
-                const isExpanded = showMoreButton.classList.contains('expanded');
+        });
+        const stickyNavLinks = document.querySelectorAll('.sticky-nav ul li a');
 
-                if (isExpanded) {
-                    hiddenVideos.forEach(video => {
-                        video.style.display = 'none';
-                    });
-                    
-                    showMoreButton.innerHTML = 'Lebih banyak <i class="fa-solid fa-chevron-down"></i>';
-                    showMoreButton.classList.remove('expanded');
-
-                } else {
-                    hiddenVideos.forEach(video => {
-                        video.style.display = 'block';
-                    });
-
-                    showMoreButton.innerHTML = 'Lebih sedikit <i class="fa-solid fa-chevron-up"></i>';
-                    showMoreButton.classList.add('expanded');
-                }
+        stickyNavLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                stickyNavLinks.forEach(navLink => navLink.classList.remove('active'));
+                this.classList.add('active');
             });
-        }
+        });
     </script>
 </body>
 </html>
